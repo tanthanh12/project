@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.sign {
+  margin: 50px auto;
+  border: 1px solid gray;
+  width: 50%;
+  height: 50%;
+  padding-bottom: 100px;
+  border-radius: 5px;
+}
+
+.img img{
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.sign .title {
+  text-align: center;
+}
+.sign .title h4{
+  font-weight: 600;
+  text-align: start;
+  margin-left: 10%;
+}
+.sign .info {
+  color: black;
+}
+.sign .info .sign-user{
+  margin-top: 20px;
+}
+.sign .info .sign-user h4{
+  text-align: start;
+  margin-left: 10%;
+}
+.sign .info h5{
+  text-align: start;
+  margin-left: 10%;
+}
+.sign .info .sign-user input {
+  margin: 10px 10%;
+  padding: 10px;
+  width: 80%;
+  outline: none;
+}
+.sign .info .sign-passwords {
+  padding: 10px;
+}
+.sign .info .sign-passwords input {
+  margin: 10px 9%;
+  padding: 10px;
+  width: 83%;
+  outline: none;
+}
+.sign .info .check-passwords input {
+  margin: 10px 10%;
+  padding: 10px;
+  width: 80%;
+  outline: none;
+}
+.sign .sign-button button {
+  width: 50%;
+  margin: 30px 25%;
+  background-color: #2078B5;
+}
+@media screen and (max-width:480px) {
+  .sign .title h4{
+    font-size: 18px;
+  }
+  .sign .info h5{
+    font-size: 15px;
+  }
+  .sign .info input{
+    font-size: 10px;
+  }
+}

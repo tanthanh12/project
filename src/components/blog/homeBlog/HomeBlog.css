@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+.cate {
+  width: 100%;
+  margin: 10px auto;
+}
+.section1 .banner-group {
+  display: flex;
+}
+.section1 .banner-group .banner1{
+  display: none;
+}
+.section1 .banner-group .banner {
+  width: 70%;
+}
+.section1 .banner-group .next-to-banner {
+  width: 30%;
+  padding: 10px;
+}
+.section1 .card .card-body a {
+  text-decoration: none;
+  color: black;
+}
+.section1 h3 {
+  margin-left: 40px;
+  border-bottom: 3px solid #ff9800;
+}
+.section2 {
+  margin-top: 20px;
+}
+.section2 h3 {
+  margin-left: 40px;
+  border-bottom: 3px solid #ff9800;
+}
+.section2 .card-body {
+  align-items: center;
+  text-align: start;
+}
+.section2 .card2 .card .card-body .card-img-top {
+  width: 30%;
+  margin-left:-10px;
+}
+.section2 .card h6 {
+  width: 50%;
+  margin-left: 20px;
+}
+@media screen and (max-width:768px){
+  .section1 .card1{
+    display: none;
+  }
+  .section1 .banner-group{
+    display: block;
+  }
+  .section1 .banner-group .banner{
+    width: 100%;
+  }
+  .section1 .banner-group .banner1{
+    display: block;
+  }
+  .section1 .banner-group .next-to-banner {
+    width: 100%;
+  }
+}

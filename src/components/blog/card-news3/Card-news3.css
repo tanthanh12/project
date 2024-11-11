@@ -1,0 +1,54 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Inter", sans-serif;
+}
+.card3 .e-card.e-card-horizontal{
+  border: none;
+  display: flex;
+  margin: 30px 40px;
+  justify-content: center;
+}
+.card3 a{
+  text-decoration: none;
+  color: black;
+}
+.card3 .e-card-header-title{
+  margin-bottom: 20px;
+}
+.card3 .e-card-stacked{
+  margin-left: 20px;
+}
+@media only screen and (max-width: 768px) {
+  .card3 {
+    width: 100%; 
+    margin-bottom: 20px;
+  }
+
+  .e-card {
+    flex-direction: column; 
+  }
+  .e-card img {
+    margin-bottom: 20px;
+    width: 100%; 
+    height: auto; 
+  }
+}
+@media only screen and (max-width: 480px) {
+  .card3 {
+    width: 100%; 
+    margin-bottom: 20px; 
+  }
+
+  .e-card {
+    flex-direction: column; 
+  }
+
+  .e-card img {
+    max-width: 100%;
+    height: auto; 
+  }
+}

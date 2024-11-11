@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Inter", sans-serif;
+}
+.total-cart {
+  margin: 100px 0 0 50px;
+}
+.cart {
+  display: flex;
+}
+.cart .left {
+  width: 60%;
+}
+.cart .left .line {
+  position: relative;
+  margin-bottom: 20px;
+}
+.cart .left .line::after {
+  content: " ";
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: black;
+  position: absolute;
+}
+.cart .left .line .row .name-title{
+    display: flex;
+    align-items: center;
+}
+.cart .left .line .row .col-2 h6{
+    margin-left: -15px;
+}
+.cart .right {
+  width: 30%;
+  margin-left: 20px;
+}
+.content-bottom {
+  display: block;
+  background-color: #e7e7e7;
+  padding: 20px;
+}
+.content-bottom .temporary {
+  display: flex;
+  justify-content: space-between;
+}
+.content-bottom .total-price {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.content-bottom .order {
+  margin-top: 20px;
+  text-align: center;
+}
+.cart .right .order a {
+  background-color: #ff6b03;
+  border: none;
+}
+.cart .left .detail {
+  margin-top: 10px;
+}
+.cart .right .voucher button {
+  background-color: #ff6b03;
+  border: none;
+}
+.cart .right .table-responsive {
+  width: 100%;
+  background-color: none;
+}
+.cart .right .table {
+  --bs-table-bg: none;
+}
+.cart .right .table th {
+  font-weight: 500;
+}
+.cart .right table tr td {
+  text-align: end;
+}
+@media screen and (max-width: 720px) {
+  .cart {
+    display: block;
+  }
+  .cart .left {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .cart .right {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .cart .left .line .row .col-2 h6 {
+    font-size: 10px;
+    margin-left: -10px;
+  }
+  .cart .left .line .row .name-title >.form-check > h6 {
+    font-size: 10px;
+    margin-top: 3px;
+  }
+}

@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Inter", sans-serif;
+}
+.product-detail-total{
+    margin-top: 100px;
+}
+.detail-top{
+    display: flex;
+}
+.detail-top .left{
+    width: 50%;
+}
+.detail-top .left img{
+    width: 100%;
+}
+.detail-top .right{
+    width: 50%;
+}
+.detail-top .right .info{
+    text-align: start;
+}
+.detail-top .right .info .price{
+    margin-top: 5px;
+}
+.detail-top .right .classify .color ul{
+    list-style: none;
+    display: flex;
+}
+.detail-top .right .classify .color ul li{
+    padding: 10px;
+    border-radius: 50px;
+    border: 1px solid black;
+    cursor: pointer;
+    text-align: start;
+}
+.classify .color ul li.active{
+    border:1px solid blue;
+}
+.detail-top .right .number .btn-group{
+    display: block;
+    margin-bottom: 20px;
+    border: 1px ;
+}
+.detail-top .right .number .btn-group span{
+    padding: 50px;
+    text-align: center;
+}
+.detail-top .button a{
+    background-color: #FF9800;
+    border: none;
+}
+.detail-top .button a:last-child{
+    margin-left: 30px;
+}
+.tab-pane:first-child p{
+    margin-top: 20px;
+}
+.spr-container .spr-header .spr-summary{
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.spr-container .spr-header .spr-summary span{
+    margin: 20px 0;
+}
+.spr-container .spr-header .spr-summary >span >a{
+    text-decoration: none;
+    color: black;
+}
+.spr-content .spr-form {
+    background-color: #d8d8d8;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+@media screen and (max-width:800px){
+    .product-detail-total .related .col-12{
+        margin: 10px auto;
+    }
+    .detail-top .button .add{
+        display: block;
+        margin: 10px auto;
+    }
+
+}
+@media screen and (max-width:600px){
+    .detail-top .left img{
+        width: 120%;
+    }
+    .detail-top .right h4{
+        font-size: 18px;
+    }
+    .detail-top .right .star span{
+        font-size: 14px;
+    }
+    .detail-top .right h5{
+        font-size: 16px;
+    }
+    .detail-top .button a:last-child{
+        display: block;
+        margin: 10px 0;
+    }
+    .detail-top .button a{
+        font-size: 14px;
+    }
+    .detail-top .right .number .btn-group span{
+        padding: 30px;
+    }
+    .product-detail-total .related h3{
+        font-size: 20px;
+        margin-left: 50px;
+    }
+    .product-detail-total .related .card{
+        width: 80%;
+    }
+    .product-detail-total .related .col-12{
+        margin: 10px 60px;
+
+    }
+}

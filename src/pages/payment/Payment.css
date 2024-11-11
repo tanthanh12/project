@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Inter", sans-serif;
+}
+.pay {
+  padding: 20px;
+}
+.pay h5 {
+  margin-left: 10px;
+}
+.pay input {
+  width: 20px;
+  height: 20px;
+  margin: -5px 10px 0;
+}
+.pay .atm {
+  display: inline-flex;
+  margin: 20px 0;
+}
+.pay .credit-card {
+  display: inline-flex;
+  margin-bottom: 30px;
+}
+.pay .request {
+  margin-top: 10px;
+}
+.form-check-input[type=checkbox]{
+  margin-top: 1px;
+}
+.form-check-input[type=radio]{
+  margin-top: 4px;
+}
+.pay-top{
+  background-color: #f2f2f2;
+  width: 70%;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+.pay .pay-top .form-check{
+  margin-bottom: 15px;
+  text-align: start;
+}
+.pay .pay-top .form-check-label{
+  font-size: 20px;
+  font-weight: 500;
+}
+.pay .pay-button{
+  margin-top: 30px;
+  text-align: center;
+}
+.pay .pay-button a{
+  background-color: #ff6b03;
+  border: none;
+}
+.pay .pay-top .collapse .toast {
+  width: 100%;
+  display: block;
+}
+.pay .pay-top #form-input{
+  width: 85%;
+  height: 100%;
+  padding: 10px;
+  margin-top: 10px;
+} 
+.pay-top .collapse .toast .toast-header{
+  color: black;
+  background-color:#ff9800;
+  width: 100%;
+}
+.pay-top .collapse .toast .toast-body img{
+  width: 20%;
+  border-radius: 5px;
+}
+.pay-top .collapse .toast .toast-body img:nth-child(2){
+  padding: 20px 0;
+}
+.pay-top .collapse .toast .toast-body img.active{
+  border: 1px solid black;
+}
+@media screen and (max-width:500px){
+  .pay .pay-top{
+    width: 100%;
+  }
+  .form-check .form-check-label{
+    margin-top: -25px;
+  }
+} 

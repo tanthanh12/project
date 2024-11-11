@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.phone .btn{
+  position: fixed;
+  background-color:#00d3d4;
+  height: 60px;
+  width: 60px;
+  bottom: 170px;
+  right: 20px;
+  display: block;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: 50%;
+}
+.phone  i {
+  animation: phone 0.8s linear infinite;
+  font-size: 30px;
+}
+@keyframes phone {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+  75%{
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-30deg);
+  }
+}
+@media screen and (max-width:768px){
+  .phone .btn{
+    width: 40px;
+    height: 40px;
+    right: 40px;
+  }
+  .phone  i{
+    font-size: 20px;
+  }
+}

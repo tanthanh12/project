@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Inter", sans-serif;
+}
+.card2 {
+  margin-bottom: 20px;
+}
+.card2 .card .card-body {
+  text-align: start;
+  height: 120px;
+  margin-left: 8px;
+}
+.card2 a {
+  text-decoration: none;
+  color: black;
+}
+.card2 .card{
+  border: none;
+}
+

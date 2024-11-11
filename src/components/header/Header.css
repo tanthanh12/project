@@ -1,0 +1,363 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+.header .image img {
+  margin-top: -20px;
+  width: 30%;
+
+}
+.nav-header .collapse {
+  width: 1000px;
+}
+.nav-header {
+  text-align: center;
+}
+.nav-header .navbar {
+  position: fixed;
+  top: 0;
+  display: block;
+  transition: top 0.3s;
+  width: 100%;
+  left: 0;
+  background-color: #e9e9e9;
+  z-index: 999;
+  height: 100px;
+  margin-top: -10px;
+}
+.header .icon {
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  left: 50px;
+}
+
+.header .icon a {
+  position: relative;
+  margin-left: 30px;
+  top: -10px;
+  text-decoration: none;
+  color: black;
+}
+
+.header .icon svg {
+  font-size: 25px;
+}
+
+.header .icon a span {
+  position: absolute;
+  left: 12px;
+  top: -10px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  color: white;
+  background-color: red;
+  font-size: 10px;
+}
+.nav-header .nav-item {
+  text-align: left;
+}
+.nav-header .nav-link {
+  color: black;
+  font-size: 20px;
+  font-weight: 400;
+  margin-left: 30px;
+}
+.nav-header .nav-link span {
+  margin-left: 10px;
+}
+.nav-header .nav-link:hover {
+  color: #ff6b03;
+}
+.nav-header .dropdown-menu {
+  top: 40px;
+  left: 15px;
+  --bs-dropdown-border-radius: none;
+}
+
+.nav-header .dropdown-item {
+  font-size: 15px;
+  color: black;
+  background-color: none;
+  --bs-dropdown-link-active-bg: #ff9800;
+}
+
+.nav-header .dropdown-item.active {
+  background-color: white;
+  color: black;
+}
+.nav-header .dropdown-item.active:hover {
+  background-color: #f8f8f8;
+  color: black;
+}
+
+.nav-header .find-glass {
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  height: 180px;
+  top: -60px;
+  right: 0;
+  background-color: #cacaca;
+  overflow-y: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+.nav-header .find-glass a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  top: 10px;
+  right: 20px;
+  text-align: end;
+}
+.nav-header .find-glass .closebtn {
+  top: -5px;
+}
+.nav-header .find-glass a:hover {
+  color: #f1f1f1;
+}
+.nav-header .openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px 15px;
+  border: none;
+  --bs-btn-border-color: none;
+  --bs-btn-bg: none;
+  --bs-btn-hover-bg: none;
+  --bs-btn-hover-border-color: none;
+  --bs-btn-color: black;
+  --bs-btn-hover-color: #ff9800;
+  margin: -10px 0 0 15px;
+}
+.nav-header .icon .openbtn {
+  margin: -15px -20px 0 15px;
+}
+.nav-header  .openbtn:hover {
+  color: #ff9800;
+}
+.nav-header .input-group {
+  display: flex;
+  width: 30%;
+  top: -20px;
+  left: 40%;
+}
+.nav-header .input-group input {
+  flex: 1;
+  --bs-border-radius: none;
+}
+.input-group-append {
+  margin-left: -1px;
+}
+.nav-header .input-group .btn {
+  margin: -10px 20px 0;
+  --bs-btn-bg: #ff9800;
+  --bs-btn-border-color: none;
+  --bs-btn-hover-border-color: none;
+  --bs-btn-border-radius: none;
+  --bs-border-radius: none;
+  height: 38px;
+  width: 50px;
+}
+.nav-header .input-group .btn svg {
+  font-size: 20px;
+  margin: -12px 5px 0 -50px;
+}
+.nav-header .openbtn-f {
+  font-size: 22px;
+  cursor: pointer;
+  padding: 10px 15px;
+  border: none;
+  --bs-btn-border-color: none;
+  --bs-btn-bg: none;
+  --bs-btn-hover-bg: none;
+  --bs-btn-hover-border-color: none;
+  --bs-btn-color: black;
+  --bs-btn-hover-color: #ff9800;
+  margin: -20px 0 0 15px;
+}
+.nav-header  .openbtn-f:hover {
+  color: #ff9800;
+}
+.navbar-text {
+  display: flex;
+}
+
+.navbar-text a {
+  position: relative;
+  margin-left: 10px;
+  top: -10px;
+}
+
+.navbar-text a span {
+  position: absolute;
+  left: 12px;
+  top: -3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: white;
+  background-color: red;
+  font-size: 10px;
+}
+.nav-header .dropdown-toggle.nav-link a {
+  text-decoration: none;
+  color: black;
+}
+.nav-header .dropdown-toggle.nav-link a:hover {
+  color: #ff6b03;
+}
+.nav-header .navbar-text a svg {
+  top: -5px;
+  justify-content: center;
+}
+.header .icon .cart-icon{
+  margin: -10px 0 ;
+}
+.header .cart-icon {
+  position: relative;
+  font-size: 25px;
+  margin-top: -5px;
+}
+.header .cart-count {
+  position: absolute;
+  top: -1px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  text-align: center;
+}
+@media screen and (max-width: 990px) {
+  .image img {
+    width: 70%;
+  }
+  .nav-item {
+    margin-left: -10px;
+  }
+
+  .nav-item .nav-link {
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .navbar-text {
+    margin-left: 20px;
+  }
+
+  .navbar-text .nav-link {
+    font-size: 15px;
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .nav-header .input-group {
+    left: 20%;
+    width: 70%;
+  }
+  .container-fluid .navbar-brand {
+    display: flex;
+  }
+
+  .container-fluid .navbar-brand .image {
+    width: 100px;
+    text-align: start;
+  }
+
+  .container-fluid .navbar-brand .image img {
+    width: 120px;
+  }
+
+  .container-fluid .navbar-brand .find {
+    width: 200px;
+    align-items: center;
+    margin-top: 40px;
+  }
+
+  .nav-item .nav-link {
+    font-size: 15px;
+  }
+
+  .nav-link {
+    text-align: start;
+  }
+
+  .nav-link svg {
+    display: none;
+  }
+
+  .image {
+    text-align: center;
+  }
+
+  .navbar-text {
+    display: none;
+  }
+
+  .header .icon {
+    visibility: visible;
+    margin: 20px -60px 0 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .nav-header .input-group {
+    left: 10%;
+    width: 80%;
+  }
+  .container-fluid .navbar-brand {
+    display: flex;
+  }
+
+  .container-fluid .navbar-brand .image {
+    width: 80px;
+    text-align: start;
+    margin-top: 10px;
+  }
+
+  .container-fluid .navbar-brand .image img {
+    width: 100px;
+  }
+
+  .container-fluid .navbar-brand .find {
+    width: 150px;
+    height: 30px;
+    align-items: center;
+    margin: 30px 0 0 20px;
+  }
+
+  .container-fluid .navbar-brand .find input {
+    font-size: 12px;
+  }
+
+  .container-fluid button.navbar-toggle {
+    width: 30px;
+  }
+
+  .container-fluid button.navbar-toggle span {
+    width: 20px;
+  }
+
+  .header .icon {
+    visibility: visible;
+    margin: 20px -10px 0 0;
+  }
+}

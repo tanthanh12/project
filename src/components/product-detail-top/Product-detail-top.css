@@ -1,0 +1,99 @@
+.product-top {
+  display: flex;
+  margin-bottom: 15px;
+}
+.product-top .left {
+  width: 40%;
+}
+.product-top .left .avatar img {
+  width: 70%;
+}
+.product-top .right {
+  width: 60%;
+}
+.product-top .right .info {
+  text-align: start;
+}
+.product-top .right .info .price {
+  margin-top: 10px;
+}
+.product-top .right .classify {
+  margin-top: 20px;
+}
+.product-top .right .classify ul {
+  list-style: none;
+  display: flex;
+}
+.product-top .right .classify ul li {
+  padding: 15px;
+  border: 1px solid black;
+  cursor: pointer;
+  text-align: start;
+  margin-left: 20px;
+  text-transform: capitalize;
+}
+.product-top .right .classify ul li.active {
+  background-color: #ff6b03;
+  color: white;
+}
+.product-top .right .classify ul li:first-child {
+  margin: 0;
+}
+.product-top .button {
+  margin-top: 20px;
+}
+.product-top .btn-group span {
+  padding: 10px;
+}
+.product-top .add {
+  margin-left: 20px;
+  background-color: black;
+}
+.product-top .buy{
+  background-color: #ff9800;
+  border: none;
+}
+.desc {
+  margin-bottom: 50px;
+}
+.desc .nav-tabs {
+  margin-left: 20px;
+}
+.desc .nav-tabs .nav-item:first-child {
+  margin-left: -20px;
+}
+.desc .nav-item:nth-child(2) {
+  padding-left: 10px;
+}
+.product-detail .related {
+  margin-left: 10px;
+}
+.product-detail .product-detail {
+  margin-bottom: 40px;
+}
+.product-detail .nav-link {
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+}
+.spr-form button {
+  background-color: #ff9800;
+  border: none;
+}
+.spr-form button:hover {
+  background-color: #ff6b03;
+}
+.product-detail .tab-content h5 {
+  margin-top: 20px;
+}
+@media screen and (max-width:578px) {
+  .product-top .button{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .product-top .button .add{
+    margin-left: 0;
+  }
+}

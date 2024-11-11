@@ -1,0 +1,185 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body {
+  font-family: "Inter", sans-serif;
+}
+.new-arrivals {
+  margin: 20px 0;
+  padding: 0 20px 20px;
+  border-radius: 5px;
+}
+.home-content{
+  margin-top: 150px;
+  padding: 20px;
+}
+.home-content .row .col-12 {
+  margin-bottom: 20px;
+}
+.home-content h3 {
+  color: black;
+  width: 50%;
+  margin: 20px auto;
+  text-align: center;
+  font-weight: 700;
+  padding: 20px;
+  position: relative;
+}
+.home-content h3::after{
+  content: " ";
+  left: -50%;
+  bottom: 0;
+  position: absolute;
+  height: 1px;
+  width: 200%;
+  background-color: #ff9800;
+}
+.home-content .more{
+  margin-top: 10px;
+  text-align: center;
+}
+.home-content .more a{
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #0846CC;
+  text-decoration: none;
+  color: white;
+  padding-bottom: 10px;
+}
+.home-content .sale-off{
+  position: relative;
+  padding: 18px;
+  background-image: linear-gradient(120deg,#fff5f5,#bebebe);
+  margin-bottom: 20px ;
+  border-radius: 5px;
+}
+.home-content .sale-off .image{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  transition: 0.3s;
+}
+.home-content .sale-off .image:hover{
+  transform: scale(1.1);
+}
+.home-content .sale-off .image img{
+  width: 20%;
+}
+.home-content .sale-off .import {
+  font-family: "Nunito" ,sans-serif !important;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  max-width: 600px;
+  padding: 0 20px;
+}
+.home-content .sale-off .import h5{
+  font-weight: 900;
+  font-size: 45px;
+  color: #ffc31f;
+}
+.home-content .sale-off .import p{
+font-weight: 700;
+font-size: 35px;
+color: #ffc31f;
+}
+.featured-collection {
+  margin: 50px 0;
+  padding: 0 15px 20px;
+  border-radius: 5px;
+}
+.home-content .blog{
+  margin-top: 40px;
+  padding: 15px;
+  border-radius: 5px;
+}
+.home-content .blog .card-text{
+  text-align: start;
+}
+.product-list-home{
+  margin-left: -30px;
+  padding: 10px;
+}
+.home-content .blog .title{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ff9800;
+  margin-bottom: 20px;
+}
+.home-content .blog .title a{
+  text-decoration: none;
+  color: black;
+}
+.home-content .blog .title a svg{
+  margin: -5px 5px 0;
+}
+.home-content .blog .title a span{
+  font-weight: 400;
+}
+.home-content .button{
+  display: none;
+}
+@media screen and (max-width:1080px){
+  .home-content .sale-off .import h5{
+    font-size: 35px;
+  }
+  .home-content .sale-off .import p{
+    font-size: 30px;
+  }
+}
+@media screen and (max-width:768px) {
+  .home-content .button{
+    display: block;
+  }
+  .home-content .button .add{
+    margin-top: 20px;
+  }
+  .home-content .button .buy{
+    width: 200px;
+  }
+  .home-content .button button{
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+  }
+  .home-content .row .col-12 {
+    margin-bottom: 20px;
+  }
+  .home-content .blog .title a{
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  .home-content .sale-off .import h5{
+    font-size: 25px;
+  }
+  .home-content .sale-off .import p{
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .home-content .sale-off .import h5 {
+    font-size: 20px;
+  }
+
+  .home-content .sale-off .import p {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width:380px){
+  .home-content .sale-off .import h5 {
+    font-size: 15px;
+  }
+
+  .home-content .sale-off .import p {
+    font-size: 10px;
+  }
+}
+
+
+

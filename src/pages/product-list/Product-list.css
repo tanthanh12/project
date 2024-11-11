@@ -1,0 +1,45 @@
+.list-title .crumb {
+  margin: 20px 15px;
+}
+
+.list-title .crumb a {
+  text-decoration: none;
+}
+
+.list-title .crumb i {
+  margin-right: 5px;
+}
+.list-title {
+  margin: 100px 0 20px;
+}
+
+.list-title h5 {
+  margin: 10px 15px;
+  font-size: 24px;
+}
+.list .row .col-12.col-sm-6.col-md-4.col-lg-3 {
+  margin-bottom: 15px;
+}
+.list .each-one .card{
+    height: 380px;
+}
+.list{
+  display: flex;
+}
+.list .left{
+  width: 25%;
+}
+.list .right{
+  width: 75%;
+}
+@media screen and (max-width:768px) {
+  .list .row .col-12.col-sm-6.col-md-4.col-lg-3{
+      width: 50%;
+  }
+  .list{
+    display: block;
+  }
+  .list .each-one .card{
+    height: 280px;
+  }
+}

@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.slider-container {
+    width: 80%;
+    margin: 0 0 30px 0;
+  }
+  .slick-dots {
+    position: relative;
+    bottom: 0;
+  }
+  
+  .slick-dots li {
+    margin:0 20px;
+  }
+  
+  .slick-dots li button:before {
+    color: gray;
+    opacity: 1;
+  }
+  
+  .slick-dots li.slick-active button:before {
+    color: #17a2b8;
+  }
+  
+  .thumbnail {
+    display: block;
+  }
+  
+  .thumbnail img {
+    width: 50px;
+    height: auto;
+  }
+  
+  .thumbnail img:hover {
+    opacity: 0.7;
+  }
+  .slider-container .card{
+    border: none;
+  }
+  .slick-dots.slick-thumb{
+    display: flex !important;
+    margin-left: -20px;
+    flex-wrap: wrap;
+  }
+  .slick-dots.slick-thumb > * {
+    margin-bottom: 50px; 
+}

@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Inter", sans-serif;
+}
+.sub-blog img {
+  width: 70%;
+}
+.news-content .creative,
+.news-content .collector,
+.news-content .curious,
+.news-content .gaston,
+.news-content .title-detail {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+.news-content .creative img,
+.news-content .collector img,
+.news-content .curious img,
+.news-content .gaston img,
+.news-content .title-detail img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  margin-bottom: 10px;
+}
+.news-content .creative h6,
+.news-content .collector h6,
+.news-content .curious h6,
+.news-content .gaston h6 {
+  text-align: start;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+.home-blog .crumb {
+  margin: 100px 40px 0;
+}
+@media screen and (max-width: 720px) {
+  .section1 .banner-group {
+    display: block;
+  }
+  .section1 .banner-group .banner {
+    width: 100%;
+  }
+  .section1 .banner-group .next-to-banner {
+    width: 100%;
+  }
+}

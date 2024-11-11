@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Inter", sans-serif;
+}
+.filt-con {
+  display: flex;
+}
+.filt-pro .crumb{
+  margin: 100px 30px 0;
+}
+.filt-con .vertical-line {
+  content: "";
+  width: 1px;
+  height: 330vh;
+  position: absolute;
+  top: 100px;
+  left: 24%;
+  background-color: #bbbbbb;
+}
+.filt-con .left {
+  width: 25%;
+}
+.filt-con .right {
+  width: 75%;
+}
+@media screen and (max-width:768px) {
+  .filt-con .row .col-12.col-sm-6.col-md-4.col-lg-3{
+      width: 50%;
+  }
+  .filt-con .row .col-12.col-sm-6.col-md-4.col-lg-3 .card{
+    height: 100%;
+  }
+  .filt-con{
+    display: block;
+  }
+}
