@@ -40,7 +40,7 @@ img {
   color: black;
 }
 .footer-icon a:hover {
-  color: #ff9800;
+  color:#59d0f8;
 }
 .footer-icon h5 {
   margin-bottom: 15px;
@@ -62,7 +62,7 @@ img {
   font-size: 12px;
 }
 .footer .sub ul li a:hover {
-  color: #ff9800;
+  color: #59d0f8;
 }
 .footer-top .support {
   margin-top: 30px;

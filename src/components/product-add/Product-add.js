@@ -45,7 +45,7 @@ export default function Product_add(props) {
           <div className="review">
             <h6>{product.name}</h6>
             <p>Màu: {product.color}</p>
-            {product.size && <p>Kích cỡ: {product.size}</p>}
+            {product.configuration && <p>Cấu hình: {product.configuration}</p>}
           </div>
         </Col>
         <Col md="2" xs="3">

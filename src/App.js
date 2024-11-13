@@ -37,7 +37,7 @@ function App() {
             <Route path="/tin-tuc/" element={<HomeBlog />}></Route>
             <Route path="/blog-detail/" element={<BlogDetail />}></Route>
             <Route path="/lien-he" element={<Contact />}></Route>
-            <Route path="/*" element={<h1>Error Page</h1>}></Route>
+            <Route path="/*" element={<h1>Không tìm thấy trang</h1>}></Route>
           </Routes>
         </BrowserRouter>
       </AppProvider>

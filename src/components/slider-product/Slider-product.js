@@ -6,7 +6,7 @@ import { Card, CardImg, Row } from "reactstrap";
 import "./Slider-product.css";
 
 export default function Slider_product() {
-  const [data, setData] = useState({ classify: [] });
+  const [data, setData] = useState({ img: [] });
   const { id } = useParams();
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function Slider_product() {
       return (
         <Row>
           <a className="thumbnail">
-            <img src={data.imgSrc[i]} alt={`Thumbnail ${i}`} />
+            <img src={data.img[i]} alt={`Thumbnail ${i}`} />
           </a>
         </Row>
       );
@@ -44,7 +44,7 @@ export default function Slider_product() {
   return (
     <div className="slider-container">
         <Slider {...settings}>
-          {data.imgSrc.map((img, index) => (
+          {data.img.map((img, index) => (
             <Card key={index}>
               <CardImg src={img} alt={`Slide ${index}`} top width="100%" />
             </Card>

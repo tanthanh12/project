@@ -133,13 +133,6 @@ export default function Cart() {
                     </tbody>
                   </Table>
                 </div>
-                <div className="voucher">
-                  <h5>Mã giảm giá</h5>
-                  <InputGroup>
-                    <Input placeholder="Nhập mã giảm giá" />
-                    <Button>Áp dụng</Button>
-                  </InputGroup>
-                </div>
                 <div className="total-price">
                   <Table borderless responsive>
                     <tbody>

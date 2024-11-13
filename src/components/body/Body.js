@@ -5,10 +5,9 @@ import { Row } from "reactstrap";
 import "./Body.css";
 import Thumb from "../thumb/Thumb";
 import { Link } from "react-router-dom";
-import hinh1 from "../.././img/hinh1.png";
-import hinh2 from "../.././img/hinh2.png";
 import Card_news4 from "../blog/card-news4/Card-news4";
 import { AiOutlineDoubleRight } from "react-icons/ai";
+import banner1 from "../../img/banner1.png";
 
 export default function Body() {
   const [data, setData] = useState([]);
@@ -75,18 +74,7 @@ export default function Body() {
               </Row>
             </div>
             <div className="sale-off">
-              <Container>
-                <Row>
-                  <div className="image">
-                  <img src={hinh1} />
-                    <img src={hinh2} /> 
-                  </div>
-                  <div className="import">
-                    <h5>MUA NGAY KẺO LỠ</h5>
-                    <p>ƯU ĐÃI LÊN ĐẾN 30% </p>
-                  </div>
-                </Row>
-              </Container>
+              <img src={banner1} />
             </div>
             <div className="title">
               <h4>Gợi ý cho bạn</h4>

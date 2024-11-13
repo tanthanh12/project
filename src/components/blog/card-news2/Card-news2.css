@@ -21,4 +21,7 @@ body {
 .card2 .card{
   border: none;
 }
+.card2 .card img {
+  border-radius: 5px;
+}
 

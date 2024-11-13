@@ -53,16 +53,24 @@ export const AppProvider = ({ children }) => {
     return str.replace(/[^0-9]/g, "");
   }
 
-  const addCart = async (id, color, size, name, price, avatar, pricecore) => {
+  const addCart = async (
+    id,
+    color,
+    name,
+    price,
+    avatar,
+    pricecore,
+    configuration
+  ) => {
     const existingItemIndex = cart.findIndex(
       (item) =>
         item.id === id &&
         item.color === color &&
-        item.size === size &&
         item.name === name &&
         item.price === price &&
         item.avatar === avatar &&
-        item.pricecore === pricecore
+        item.pricecore === pricecore &&
+        item.configuration === configuration
     );
     if (existingItemIndex !== -1) {
       const updatedCart = [...cart];
@@ -73,12 +81,12 @@ export const AppProvider = ({ children }) => {
       const newItem = {
         id,
         color,
-        size,
         qty: 1,
         name,
         avatar,
         price,
         pricecore,
+        configuration,
       };
       const newCart = [...cart, newItem];
       setCart(newCart);
@@ -139,8 +147,8 @@ export const AppProvider = ({ children }) => {
         if (
           pricecore &&
           !(
-            item.pricecore >= pricecore - 10000 &&
-            item.pricecore <= pricecore + 10000
+            item.pricecore >= pricecore - 100000 &&
+            item.pricecore <= pricecore + 100000
           )
         ) {
           priceMatch = false;

@@ -7,7 +7,7 @@ body {
   font-family: "Inter", sans-serif;
 }
 .total-cart {
-  margin: 100px 0 0 50px;
+  margin: 125px 0 0 50px;
 }
 .cart {
   display: flex;
@@ -48,24 +48,20 @@ body {
   justify-content: space-between;
 }
 .content-bottom .total-price {
-  margin-top: 10px;
   display: flex;
   justify-content: space-between;
+  margin-top: -15px;
 }
 .content-bottom .order {
   margin-top: 20px;
   text-align: center;
 }
 .cart .right .order a {
-  background-color: #ff6b03;
+  background-color: #00d3d4;
   border: none;
 }
 .cart .left .detail {
   margin-top: 10px;
-}
-.cart .right .voucher button {
-  background-color: #ff6b03;
-  border: none;
 }
 .cart .right .table-responsive {
   width: 100%;

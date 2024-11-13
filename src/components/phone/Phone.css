@@ -6,8 +6,8 @@
 .phone .btn{
   position: fixed;
   background-color:#00d3d4;
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   bottom: 170px;
   right: 20px;
   display: block;
@@ -18,7 +18,7 @@
 }
 .phone  i {
   animation: phone 0.8s linear infinite;
-  font-size: 30px;
+  font-size: 20px;
 }
 @keyframes phone {
   0% {

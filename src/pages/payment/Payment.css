@@ -54,7 +54,7 @@ body {
   text-align: center;
 }
 .pay .pay-button a{
-  background-color: #ff6b03;
+  background-color: #00d3d4;
   border: none;
 }
 .pay .pay-top .collapse .toast {
@@ -69,7 +69,7 @@ body {
 } 
 .pay-top .collapse .toast .toast-header{
   color: black;
-  background-color:#ff9800;
+  background-color:#59d0f8;
   width: 100%;
 }
 .pay-top .collapse .toast .toast-body img{

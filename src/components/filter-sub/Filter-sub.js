@@ -69,7 +69,7 @@ export default function FilterSub(props) {
                 <div>
                   <UncontrolledAccordion stayOpen>
                     <AccordionItem>
-                      <AccordionHeader targetId="4">Áo</AccordionHeader>
+                    <AccordionHeader targetId="4">Laptop</AccordionHeader>
                       <AccordionBody accordionId="4">
                         <div className="shirts">
                           <p
@@ -79,7 +79,7 @@ export default function FilterSub(props) {
                             }
                             onClick={() => handleItemSelection("1")}
                           >
-                            Áo thun
+                            Dell
                           </p>
                           <p
                             pid="2"
@@ -88,7 +88,7 @@ export default function FilterSub(props) {
                             }
                             onClick={() => handleItemSelection("2")}
                           >
-                            Áo khoác
+                            Asus
                           </p>
                           <p
                             pid="3"
@@ -97,22 +97,13 @@ export default function FilterSub(props) {
                             }
                             onClick={() => handleItemSelection("3")}
                           >
-                            Áo polo
-                          </p>
-                          <p
-                            pid="4"
-                            className={
-                              selectedItems.includes("4") ? "active" : ""
-                            }
-                            onClick={() => handleItemSelection("4")}
-                          >
-                            Áo giữ nhiệt
+                            MSI
                           </p>
                         </div>
                       </AccordionBody>
                     </AccordionItem>
                     <AccordionItem>
-                      <AccordionHeader targetId="5">Quần</AccordionHeader>
+                      <AccordionHeader targetId="5">Điện thoại</AccordionHeader>
                       <AccordionBody accordionId="5">
                         <div className="pants">
                           <p
@@ -122,7 +113,7 @@ export default function FilterSub(props) {
                             }
                             onClick={() => handleItemSelection("5")}
                           >
-                            Quần Âu
+                            Samsung
                           </p>
                           <p
                             pid="6"
@@ -131,7 +122,7 @@ export default function FilterSub(props) {
                             }
                             onClick={() => handleItemSelection("6")}
                           >
-                            Quần Kaki
+                            iPhone
                           </p>
                           <p
                             pid="7"
@@ -140,7 +131,7 @@ export default function FilterSub(props) {
                             }
                             onClick={() => handleItemSelection("7")}
                           >
-                            Quần Jeans
+                            OPPO
                           </p>
                           <p
                             pid="8"
@@ -149,7 +140,7 @@ export default function FilterSub(props) {
                             }
                             onClick={() => handleItemSelection("8")}
                           >
-                            Quần Short
+                            Nokia
                           </p>
                         </div>
                       </AccordionBody>
@@ -165,7 +156,7 @@ export default function FilterSub(props) {
                             }
                             onClick={() => handleItemSelection("9")}
                           >
-                            Tất
+                            Sạc dự phòng
                           </p>
                           <p
                             pid="10"
@@ -174,7 +165,7 @@ export default function FilterSub(props) {
                             }
                             onClick={() => handleItemSelection("10")}
                           >
-                            Thắt lưng
+                            Cáp sạc,Hud,Cáp chuyển đổi
                           </p>
                           <p
                             pid="11"
@@ -183,7 +174,7 @@ export default function FilterSub(props) {
                             }
                             onClick={() => handleItemSelection("11")}
                           >
-                            Mũ
+                            Tai nghe
                           </p>
                           <p
                             pid="12"
@@ -192,7 +183,16 @@ export default function FilterSub(props) {
                             }
                             onClick={() => handleItemSelection("12")}
                           >
-                            Túi
+                            Loa
+                          </p>
+                          <p
+                            pid="13"
+                            className={
+                              selectedItems.includes("13") ? "active" : ""
+                            }
+                            onClick={() => handleItemSelection("13")}
+                          >
+                            Củ sạc, sạc không dây
                           </p>
                         </div>
                       </AccordionBody>
@@ -202,71 +202,50 @@ export default function FilterSub(props) {
               </AccordionBody>
             </AccordionItem>
             <AccordionItem>
-              <AccordionHeader targetId="2">Kích cỡ</AccordionHeader>
+              <AccordionHeader targetId="2">Cấu hình</AccordionHeader>
               <AccordionBody accordionId="2">
                 <div className="product-size">
-                  <p
-                    className={selectedItems.includes("13") ? "active" : ""}
-                    pid="13"
-                    onClick={() => handleItemSelection("13")}
-                  >
-                    S
-                  </p>
                   <p
                     className={selectedItems.includes("14") ? "active" : ""}
                     pid="14"
                     onClick={() => handleItemSelection("14")}
                   >
-                    M
+                    8GB
                   </p>
                   <p
                     className={selectedItems.includes("15") ? "active" : ""}
                     pid="15"
                     onClick={() => handleItemSelection("15")}
                   >
-                    L
+                    12GB
                   </p>
                   <p
                     className={selectedItems.includes("16") ? "active" : ""}
                     pid="16"
                     onClick={() => handleItemSelection("16")}
                   >
-                    XL
+                    16GB
                   </p>
                   <p
                     className={selectedItems.includes("17") ? "active" : ""}
                     pid="17"
                     onClick={() => handleItemSelection("17")}
                   >
-                    29
+                    128GB
                   </p>
                   <p
                     className={selectedItems.includes("18") ? "active" : ""}
                     pid="18"
                     onClick={() => handleItemSelection("18")}
                   >
-                    30
+                    256GB
                   </p>
                   <p
                     className={selectedItems.includes("19") ? "active" : ""}
                     pid="19"
                     onClick={() => handleItemSelection("19")}
                   >
-                    31
-                  </p>
-                  <p
-                    className={selectedItems.includes("20") ? "active" : ""}
-                    pid="20"
-                    onClick={() => handleItemSelection("20")}
-                  >
-                    32
-                  </p>
-                  <p
-                    className={selectedItems.includes("21") ? "active" : ""}
-                    pid="21"
-                    onClick={() => handleItemSelection("21")}
-                  >
-                    33
+                    512GB
                   </p>
                 </div>
               </AccordionBody>
@@ -278,9 +257,9 @@ export default function FilterSub(props) {
                   <div class="slidecontainer">
                     <input
                       type="range"
-                      min="60000"
-                      max="600000"
-                      step="30000"
+                      min="50000"
+                      max="60000000"
+                      step="50000"
                       value={sliderValue}
                       class="slider"
                       id="myRange"

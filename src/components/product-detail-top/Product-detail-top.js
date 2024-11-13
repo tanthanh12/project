@@ -27,7 +27,6 @@ export default function Product_detail_top() {
   const { addCart, updateQty,cart } = useContext(AppContext);
   const { id } = useParams();
   const [qty, setQty] = useState(1);
-
   const [data, setData] = useState(null);
   const getData = () => {
     const url = `https://6518dbbd818c4e98ac5ff3ae.mockapi.io/products/${id}`;
@@ -35,7 +34,6 @@ export default function Product_detail_top() {
       .get(url)
       .then((res) => {
         setData(res.data);
-        console.log(data);
       })
       .catch((e) => {
         console.log(e);
@@ -44,6 +42,11 @@ export default function Product_detail_top() {
   useEffect(() => {
     getData();
   }, [id]);
+  useEffect(() => {
+    if (data) {
+      console.log(data); 
+    }
+  }, [data]);
 
   const increment = () => {
     const newQty = qty + 1;
@@ -69,9 +72,9 @@ export default function Product_detail_top() {
     setActiveColor(index);
   };
 
-  const [activeSize, setActiveSize] = useState(null);
+  const [activeConfiguration, setActiveConfiguration] = useState(null);
   const handleClick1 = (index) => {
-    setActiveSize(index);
+    setActiveConfiguration(index);
   };
 
   const [activeTab, setActiveTab] = useState();
@@ -96,7 +99,7 @@ export default function Product_detail_top() {
         </Container>
       <div className="product-top">
         <div className="left">
-          {/* <Slider_product images={data && data.images} /> */}
+           <Slider_product images={data && data.images} />
         </div>
         <div className="right">
           <div className="info">
@@ -108,10 +111,10 @@ export default function Product_detail_top() {
           <div className="classify">
             <div className="color">
               <Row>
-                <h6>Phân loại:</h6>
-                {/* <ul>
+                <h5>Màu sắc</h5>
+               <ul>
                   {data &&
-                    data.configuration.map((configuration, index) => (
+                    data.color.map((color, index) => (
                       <li
                         key={index}
                         className={index === activeColor ? "li active" : "li"}
@@ -120,21 +123,21 @@ export default function Product_detail_top() {
                         {color}
                       </li>
                     ))}
-                </ul> */}
+                </ul> 
               </Row>
             </div>
-            {data && data.size && data.size.length > 0 && (
+            {data && data.configuration && data.configuration.length > 0 && (
               <div className="size">
                 <Row>
-                  <h6>Kích cỡ:</h6>
+                  <h5>Cấu hình</h5>
                   <ul>
-                    {data.size.map((size, index) => (
+                    {data.configuration.map((configuration, index) => (
                       <li
                         key={index}
-                        className={index === activeSize ? "li active" : "li"}
+                        className={index === activeConfiguration ? "li active" : "li"}
                         onClick={() => handleClick1(index)}
                       >
-                        {size}
+                        {configuration}
                       </li>
                     ))}
                   </ul>
@@ -172,7 +175,8 @@ export default function Product_detail_top() {
                       data.name,
                       data.price,
                       data.avatar,
-                      data.pricecore
+                      data.pricecore,
+                      data.configuration,
                     )
                   }
                 >

@@ -146,7 +146,7 @@ export default function Header() {
             </div>
             <NavbarToggler onClick={toggle} />
             <Collapse navbar>
-              <Nav className="mx-auto" navbar>
+              <Nav className="me-auto" navbar>
                 <NavItem>
                   <NavLink href="/trang-chu">Trang chủ</NavLink>
                 </NavItem>
@@ -161,9 +161,9 @@ export default function Header() {
                     <Link to="/danh-sach-san-pham">Sản phẩm</Link>
                   </DropdownToggle>
                   <DropdownMenu align="end">
-                    <DropdownItem>Áo</DropdownItem>
+                    <DropdownItem>Laptop</DropdownItem>
                     <DropdownItem divider />
-                    <DropdownItem>Quần</DropdownItem>
+                    <DropdownItem>Điện thoại</DropdownItem>
                     <DropdownItem divider />
                     <DropdownItem>Phụ kiện</DropdownItem>
                   </DropdownMenu>

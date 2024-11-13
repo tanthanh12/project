@@ -12,7 +12,7 @@
 }
 .each-one .card {
   flex: 1;
-  height: calc(100% - 20px);
+  height: 365px;
   margin: 10px;
   border: none;
   transition: 0.3s;
@@ -57,7 +57,7 @@
     width: 80px;
   }
   .each-one .card .card-body .card-text{
-    font-size: 12px;
+    font-size: 10px;
     text-align: left;
   }
 }

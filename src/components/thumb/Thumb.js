@@ -45,7 +45,7 @@ export default function Thumb(props) {
             <CardImg src={product.avatar} top width="100%" />
             <CardBody>
               <CardTitle tag="p"> {product ?  cutShortWithoutCuttingWords(product.name, 30) : " "}</CardTitle>
-              <CardText tag="h5">{convertMoney(product.pricecore)} đ </CardText>
+              <CardText tag="h6">{convertMoney(product.pricecore)}đ </CardText>
             </CardBody>
           </Card>
         </Link>

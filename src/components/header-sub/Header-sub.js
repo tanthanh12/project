@@ -26,9 +26,9 @@ export default function Header_sub() {
         <AccordionItem>
           <AccordionHeader targetId="1" ><Link to="/danh-sach-san-pham">Sản phẩm</Link></AccordionHeader>
           <AccordionBody accordionId="1">
-            <a>Áo </a>
+            <a>Laptop</a>
             <br />
-            <a>Quần </a>
+            <a>Điện thoại</a>
             <br />
             <a>Phụ kiện </a>
           </AccordionBody>

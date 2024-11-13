@@ -11,7 +11,7 @@ import ScrollToTopButton from "../../../components/scroll-to-top/ScrollTop";
 export default function BlogDetail() {
   const [data, setData] = useState([]);
   const getData = () => {
-    const url = "https://658f810fcbf74b575ec9e34d.mockapi.io/news";
+    const url = "https://6518dbbd818c4e98ac5ff3ae.mockapi.io/news";
     axios
       .get(url)
       .then((res) => {
@@ -38,7 +38,7 @@ export default function BlogDetail() {
           <BreadcrumbItem>
             <a href="/tin-tuc/">Tin tức</a>
           </BreadcrumbItem>
-          <BreadcrumbItem active>CHOÁNG NGỢP TRƯỚC BST TRANG SỨC NAM ĐẦU TIÊN CỦA LOUIS VUITTON</BreadcrumbItem>
+          <BreadcrumbItem active>Hướng dẫn cách lấy nhạc YouTube làm nhạc chuông cực đơn giản chắc bạn sẽ cần</BreadcrumbItem>
         </Breadcrumb>
       </div>
       <div className="article">

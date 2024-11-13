@@ -18,7 +18,7 @@ export default function Footer() {
                     Địa chỉ: 515 Nguyễn Thị Minh Khai, Phường Đa Kao, Quận 1,
                     Thành phố Hồ Chí Minh.
                   </li>
-                  <li>Email: ketaroshop@gmail.com</li>
+                  <li>Email: gotech@gmail.com</li>
                   <li>Phone: 0(1234) 567 890</li>
                 </ul>
               </div>
@@ -47,7 +47,7 @@ export default function Footer() {
                     <Link to="#">Hướng dẫn mua hàng online</Link>
                   </li>
                   <li>
-                    <Link to="#">Hướng dẫn chọn size</Link>
+                    <Link to="#">Hướng dẫn chọn sản phẩm</Link>
                   </li>
                   <li>
                     <Link to="#">Dịch vụ sửa chữa</Link>
@@ -84,7 +84,7 @@ export default function Footer() {
         <Container>
           <Row>
             <Col md="6">
-              <p>©2024 KetaroShop.com. All Rights Reserved.</p>
+              <p>©2024 GoTech.com. All Rights Reserved.</p>
             </Col>
           </Row>
         </Container>

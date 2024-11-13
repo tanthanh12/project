@@ -17,11 +17,11 @@ body {
 .contact-form .btn{
     width: 30%;
     padding: 10px;
-    background-color: #FF6B03;
+    background-color: #00d3d4;
     border: none;
     outline: none;
     margin: 20px 38%;
 }
 .contact-form{
-  margin-top: 100px;
+  margin-top: 125px;
 }

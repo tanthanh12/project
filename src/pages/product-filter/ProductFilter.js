@@ -12,7 +12,7 @@ export default function ProductFilter() {
   const { filteredData, setFilteredData, handleFilterChange,setSearchQuery } =
     useContext(AppContext);
   const getData = () => {
-    const url = "https://658f810fcbf74b575ec9e34d.mockapi.io/products";
+    const url = "https://6518dbbd818c4e98ac5ff3ae.mockapi.io/products";
     axios
       .get(url)
       .then((res) => {
@@ -32,7 +32,7 @@ export default function ProductFilter() {
 
   const handleSearch = async (searchQuery) => {
     try {
-      const response = await axios.get(`https://658f810fcbf74b575ec9e34d.mockapi.io/products?q=${searchQuery}`);
+      const response = await axios.get(`https://6518dbbd818c4e98ac5ff3ae.mockapi.io/products?q=${searchQuery}`);
       setFilteredData(response.data);
       setSearchQuery(searchQuery);
     } catch (error) {

@@ -8,7 +8,7 @@ body {
   font-family: "Inter", sans-serif;
 }
 .home-blog .crumb {
-  margin: 100px 40px 0;
+  margin: 125px 40px 0;
 }
 @media screen and (max-width: 720px) {
   .section1 .banner-group {

@@ -10,7 +10,7 @@
   margin-right: 5px;
 }
 .list-title {
-  margin: 100px 0 20px;
+  margin: 125px 0 20px;
 }
 
 .list-title h5 {
@@ -21,7 +21,7 @@
   margin-bottom: 15px;
 }
 .list .each-one .card{
-    height: 380px;
+    height: 320px;
 }
 .list{
   display: flex;
@@ -40,6 +40,6 @@
     display: block;
   }
   .list .each-one .card{
-    height: 280px;
+    height: 270px;
   }
 }
