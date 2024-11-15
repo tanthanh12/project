@@ -3,16 +3,12 @@ import logo from "../../img/logo.png";
 import "./Header.css";
 import {
   Collapse,
-  DropdownItem,
-  DropdownMenu,
-  DropdownToggle,
   Nav,
   NavItem,
   NavLink,
   Navbar,
   NavbarBrand,
   NavbarToggler,
-  UncontrolledDropdown,
   Container,
   NavbarText,
   Offcanvas,
@@ -22,20 +18,18 @@ import {
   InputGroup,
   Input,
 } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header_sub from "../../components/header-sub/Header-sub";
 import { AppContext } from "../../AppContext";
 import { HiMagnifyingGlass } from "react-icons/hi2";
-import { LuHeart } from "react-icons/lu";
 import { TiShoppingCart } from "react-icons/ti";
 import { LuFilter } from "react-icons/lu";
 import FilterSub from "../filter-sub/Filter-sub";
 
 export default function Header() {
-  const { cart,searchResults,setSearchResults } = useContext(AppContext);
+  const { cart,setSearchResults } = useContext(AppContext);
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isOpen1, setIsOpen1] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const toggle1 = () => setIsOpen2(!isOpen2);
@@ -50,18 +44,10 @@ export default function Header() {
   const closeNav = () => {
     setIsOpen1(false);
   };
-
-  const handleMouseOver = () => {
-    setDropdownOpen(true);
-  };
-  const handleMouseOut = () => {
-    setDropdownOpen(false);
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
-      setVisible(prevScrollPos > currentScrollPos || currentScrollPos === 0);
+      setVisible(prevScrollPos > currentScrollPos || currentScrollPos == 0);
       setPrevScrollPos(currentScrollPos);
     };
 
@@ -71,27 +57,20 @@ export default function Header() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [prevScrollPos]);
-  const handleSearch = async () => {
+
+  const navigate = useNavigate();
+  const handleSearch = async (e) => {
+    e.preventDefault();
     try {
       const response = await fetch(
-        `https://6518dbbd818c4e98ac5ff3ae.mockapi.io/products${searchQuery}`
+        `https://6518dbbd818c4e98ac5ff3ae.mockapi.io/products/search?query=${searchQuery}`
       );
-      if (!response.ok) {
-        throw new Error("Không thể tìm kiếm.");
-      }
       const data = await response.json();
-      if (data.length > 0) {
-        window.location.href = `/search?q=${searchQuery}`;
-      } else {
-        setSearchResults(data); 
-      }
+      setSearchResults(data);
+      navigate(`/search`);
     } catch (error) {
-      console.error("Lỗi khi tìm kiếm:", error);
+      console.error("Error fetching products:", error);
     }
-  };
-
-  const handleChange = (event) => {
-    setSearchQuery(event.target.value);
   };
 
   return (
@@ -112,16 +91,17 @@ export default function Header() {
                 <a href="#" className="closebtn" onClick={closeNav}>
                   x
                 </a>
-                <InputGroup>
-                  <Input
-                    placeholder="Bạn cần tìm gì"
+                <form onSubmit={handleSearch}>
+                  <input
+                    type="text"
                     value={searchQuery}
-                    onChange={handleChange}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Bạn tìm gì?"
                   />
-                  <Button type="button" onClick={handleSearch}>
+                  <Button type="submit">
                     <HiMagnifyingGlass />
                   </Button>
-                </InputGroup>
+                </form>
               </div>
               <Button className="openbtn" onClick={openNav}>
                 <HiMagnifyingGlass />
@@ -150,26 +130,11 @@ export default function Header() {
                 <NavItem>
                   <NavLink href="/trang-chu">Trang chủ</NavLink>
                 </NavItem>
-                <UncontrolledDropdown
-                  isOpen={dropdownOpen}
-                  onMouseOver={handleMouseOver}
-                  onMouseOut={handleMouseOut}
-                  nav
-                  inNavbar
-                >
-                  <DropdownToggle nav caret>
-                    <Link to="/danh-sach-san-pham">Sản phẩm</Link>
-                  </DropdownToggle>
-                  <DropdownMenu align="end">
-                    <DropdownItem>Laptop</DropdownItem>
-                    <DropdownItem divider />
-                    <DropdownItem>Điện thoại</DropdownItem>
-                    <DropdownItem divider />
-                    <DropdownItem>Phụ kiện</DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
                 <NavItem>
-                  <NavLink href="/tin-tuc">Tin tức</NavLink>
+                  <NavLink href="/danh-sach-san-pham">Sản phẩm</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/">Tin tức</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink href="/lien-he">Liên hệ</NavLink>
@@ -195,9 +160,6 @@ export default function Header() {
                     <Button className="openbtn" onClick={openNav}>
                       <HiMagnifyingGlass />
                     </Button>
-                  </NavLink>
-                  <NavLink href="">
-                    <LuHeart />
                   </NavLink>
                   <NavLink href="/gio-hang" className="cart-i">
                     <div className="cart-icon">

@@ -51,10 +51,10 @@
 }
 .home-content .sale-off img{
   width: 70%;
-  margin: 30px 150px;
+  margin: 15px 150px;
 }
 .featured-collection {
-  margin: 50px 0;
+  margin: 10px 0;
   padding: 0 15px 20px;
   border-radius: 5px;
 }
@@ -110,6 +110,18 @@
   .home-content .blog .title a{
     font-size: 12px;
     margin-top: 5px;
+  }
+  .home-content .new-arrivals{
+    margin-bottom: -15px;
+  }
+  .home-content .new-arrivals .title h3{
+    font-size: 15px;
+  }
+  .home-content .sale-off img{
+    margin: 15px 80px;
+  }
+  .home-content .product-list-home{
+    margin-bottom: -25px;
   }
 }
 

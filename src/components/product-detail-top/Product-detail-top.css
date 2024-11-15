@@ -33,7 +33,7 @@
   text-transform: capitalize;
 }
 .product-top .right .classify ul li.active {
-  background-color: #ff6b03;
+  background-color: #00d3d4;
   color: white;
 }
 .product-top .right .classify ul li:first-child {
@@ -50,7 +50,7 @@
   background-color: black;
 }
 .product-top .buy{
-  background-color: #ff9800;
+  background-color: #59d0f8;
   border: none;
 }
 .desc {
@@ -77,11 +77,11 @@
   cursor: pointer;
 }
 .spr-form button {
-  background-color: #ff9800;
+  background-color: #59d0f8;
   border: none;
 }
 .spr-form button:hover {
-  background-color: #ff6b03;
+  background-color: #59d0f8;
 }
 .product-detail .tab-content h5 {
   margin-top: 20px;

@@ -17,7 +17,7 @@ body {
   border: none;
   --bs-border-radius: none;
   border-radius: none;
-  --bs-btn-active-bg: #ff9800;
+  --bs-btn-active-bg: #59d0f8;
 }
 .filter-sub .btn-group {
   width: 100%;
@@ -62,14 +62,14 @@ body {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #ff9800;
+  background: #59d0f8;
   cursor: pointer;
 }
 
 .filter-sub .slider::-moz-range-thumb {
   width: 25px;
   height: 25px;
-  background: #ff9800;
+  background: #59d0f8;
   cursor: pointer;
 }
 .filter-sub .accordion-body .shirts,
@@ -90,5 +90,5 @@ body {
   margin-top: 10px;
 }
 .filter-sub .active {
-  background-color: #ff9800;
+  background-color: #59d0f8;
 }

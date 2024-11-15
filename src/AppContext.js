@@ -12,6 +12,7 @@ export const AppProvider = ({ children }) => {
   const [sliderValue, setSliderValue] = useState(60000);
   const [selectedItems, setSelectedItems] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
   const getData = async () => {
     const url = "https://6518dbbd818c4e98ac5ff3ae.mockapi.io/products";
@@ -22,7 +23,7 @@ export const AppProvider = ({ children }) => {
       })
       .catch((error) => {
         if (error.response.status == 404) {
-          console.error("Data not found");
+          console.error("Không tìm thấy sản phẩm");
         }
       });
   };
@@ -66,13 +67,10 @@ export const AppProvider = ({ children }) => {
       (item) =>
         item.id === id &&
         item.color === color &&
-        item.name === name &&
-        item.price === price &&
-        item.avatar === avatar &&
-        item.pricecore === pricecore &&
         item.configuration === configuration
     );
-    if (existingItemIndex !== -1) {
+    console.log(existingItemIndex);
+    if (existingItemIndex != -1) {
       const updatedCart = [...cart];
       updatedCart[existingItemIndex].qty += 1;
       setCart(updatedCart);
@@ -88,7 +86,9 @@ export const AppProvider = ({ children }) => {
         pricecore,
         configuration,
       };
+      // console.log(newItem);
       const newCart = [...cart, newItem];
+      console.log(newCart);
       setCart(newCart);
       localStorage.setItem("cart_list", JSON.stringify(newCart));
     }
@@ -129,48 +129,6 @@ export const AppProvider = ({ children }) => {
     setCart(updatedCart);
     localStorage.setItem("cart_list", JSON.stringify(updatedCart));
   };
-  const filterProducts = useCallback(
-    (name, pricecore, size) => {
-      if (!data) return [];
-      return data.filter((item) => {
-        let nameMatch = true;
-        let priceMatch = true;
-        let sizeMatch = true;
-
-        if (name && typeof name == "string") {
-          const lowerCaseName = item.name.toLowerCase();
-          if (lowerCaseName.indexOf(name.toLowerCase()) == -1) {
-            nameMatch = false;
-          }
-        }
-
-        if (
-          pricecore &&
-          !(
-            item.pricecore >= pricecore - 100000 &&
-            item.pricecore <= pricecore + 100000
-          )
-        ) {
-          priceMatch = false;
-        }
-
-        if (size) {
-          if (item.size != size) {
-            sizeMatch = false;
-          }
-        }
-
-        return nameMatch && priceMatch && sizeMatch;
-      });
-    },
-    [data]
-  );
-  const handleFilterChange = useCallback(
-    (selectedItems, sliderValue) => {
-      filterProducts(selectedItems, sliderValue);
-    },
-    [filterProducts]
-  );
   const handleSliderChange = useCallback((value) => {
     const parsedValue = parseInt(value);
     setSliderValue(parsedValue);
@@ -200,7 +158,6 @@ export const AppProvider = ({ children }) => {
         changeQty,
         removeItem,
         updateQty,
-        filterProducts,
         filteredData,
         setFilteredData,
         selectedItems,
@@ -210,10 +167,11 @@ export const AppProvider = ({ children }) => {
         handleSliderChange,
         handleItemSelection,
         convertMoney,
-        handleFilterChange,
         handleChange,
         searchQuery,
         setSearchQuery,
+        searchResults,
+        setSearchResults,
       }}
     >
       {children}

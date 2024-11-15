@@ -24,7 +24,7 @@ import Slider_product from "../slider-product/Slider-product";
 import { AppContext } from "../../AppContext";
 
 export default function Product_detail_top() {
-  const { addCart, updateQty,cart } = useContext(AppContext);
+  const { addCart, updateQty, cart } = useContext(AppContext);
   const { id } = useParams();
   const [qty, setQty] = useState(1);
   const [data, setData] = useState(null);
@@ -44,7 +44,7 @@ export default function Product_detail_top() {
   }, [id]);
   useEffect(() => {
     if (data) {
-      console.log(data); 
+      console.log(data);
     }
   }, [data]);
 
@@ -85,21 +85,21 @@ export default function Product_detail_top() {
   return (
     <div className="product-detail">
       <Container>
-          <div>
-            <Breadcrumb className="crumb">
-              <BreadcrumbItem>
-                <a href="/trang-chu/">
-                  <i class="fa-solid fa-house"></i>
-                </a>
-              </BreadcrumbItem>
-              <BreadcrumbItem>Sản phẩm</BreadcrumbItem>
-              <BreadcrumbItem active>{data && data.name}</BreadcrumbItem>
-            </Breadcrumb>
-          </div>
-        </Container>
+        <div>
+          <Breadcrumb className="crumb">
+            <BreadcrumbItem>
+              <a href="/trang-chu/">
+                <i class="fa-solid fa-house"></i>
+              </a>
+            </BreadcrumbItem>
+            <BreadcrumbItem>Sản phẩm</BreadcrumbItem>
+            <BreadcrumbItem active>{data && data.name}</BreadcrumbItem>
+          </Breadcrumb>
+        </div>
+      </Container>
       <div className="product-top">
         <div className="left">
-           <Slider_product images={data && data.images} />
+          <Slider_product images={data && data.img} />
         </div>
         <div className="right">
           <div className="info">
@@ -112,7 +112,7 @@ export default function Product_detail_top() {
             <div className="color">
               <Row>
                 <h5>Màu sắc</h5>
-               <ul>
+                <ul>
                   {data &&
                     data.color.map((color, index) => (
                       <li
@@ -123,7 +123,7 @@ export default function Product_detail_top() {
                         {color}
                       </li>
                     ))}
-                </ul> 
+                </ul>
               </Row>
             </div>
             {data && data.configuration && data.configuration.length > 0 && (
@@ -157,11 +157,12 @@ export default function Product_detail_top() {
                   onClick={() =>
                     addCart(
                       data.id,
-                      data.configuration,
+                      data.color,
                       data.name,
                       data.price,
                       data.avatar,
-                      data.pricecore
+                      data.pricecore,
+                      data.configuration
                     )
                   }
                 >
@@ -172,11 +173,12 @@ export default function Product_detail_top() {
                   onClick={() =>
                     addCart(
                       data.id,
+                      data.color,
                       data.name,
                       data.price,
                       data.avatar,
                       data.pricecore,
-                      data.configuration,
+                      data.configuration
                     )
                   }
                 >
@@ -207,15 +209,18 @@ export default function Product_detail_top() {
           </NavItem>
         </Nav>
         <TabContent activeTab={activeTab}>
-          <TabPane tabId="1">
-            <Row>
-              <h5>Đặc tính sản phẩm</h5>
-              <Col sm="12">
-                {data &&
-                  data.desc.map((desc, index) => <p key={index}>{desc}</p>)}
-              </Col>
-            </Row>
-          </TabPane>
+          {data && Array.isArray(data.desc) && data.desc.length > 0 && (
+            <TabPane tabId="1">
+              <Row>
+                <h5>Đặc tính sản phẩm</h5>
+                <Col sm="12">
+                  {data.desc.map((desc, index) => (
+                    <p key={index}>{desc}</p>
+                  ))}
+                </Col>
+              </Row>
+            </TabPane>
+          )}
           <TabPane tabId="2">
             <Row>
               <Col sm="12">

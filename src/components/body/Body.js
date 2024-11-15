@@ -61,18 +61,6 @@ export default function Body() {
                   ))}
               </Row>
             </div>
-            <div className="featured-collection">
-              <div className="title">
-                <h3>TOP NỔI BẬT</h3>
-              </div>
-              <Row>
-                {data
-                  .filter((item) => item.id > 6 && item.id < 11)
-                  .map((item, index) => (
-                    <Thumb key={index} product={item} />
-                  ))}
-              </Row>
-            </div>
             <div className="sale-off">
               <img src={banner1} />
             </div>

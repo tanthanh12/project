@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import {
   AccordionItem,
   AccordionHeader,
@@ -6,61 +6,65 @@ import {
   UncontrolledAccordion,
   Button,
 } from "reactstrap";
-import { AppContext } from "../../AppContext";
+import { useParams } from "react-router-dom";
+import useFetch from "../../features/useFetch";
 import "./Filter-sub.css";
 
-export default function FilterSub(props) {
-  const {
-    filterProducts,
-    setSliderValue,
-    selectedItems,
-    sliderValue,
-    handleItemSelection,
-    setSelectedItems,
-  } = useContext(AppContext);
-  const { onFilterChange } = props;
-  const handleSliderChange = useCallback(
-    (event) => {
-      setSliderValue(parseInt(event.target.value));
-      if (onFilterChange) {
-        onFilterChange(selectedItems, parseInt(event.target.value));
-      }
-    },
-    [onFilterChange, selectedItems, setSliderValue]
-  );
+export default function Filter(props) {
+  const { slug: keysearch } = useParams();
 
+  const dataProduct = useFetch(
+    "https://6518dbbd818c4e98ac5ff3ae.mockapi.io/products"
+  );
+  const [filterProduct, setFilterProduct] = useState([]);
+  const [selectedItems, setSelectedItems] = useState([]);
+  const [sliderValue, setSliderValue] = useState(0);
+  
+  const handleFilter = (min, max) => {
+    const filterData = dataProduct.filter((item) =>
+      min && max ? item.pricecore >= min && item.pricecore <= max : true
+    );
+    setFilterProduct(filterData);
+  };
+
+  const handleItemSelection = (pid) => {
+    setSelectedItems((prevSelected) =>
+      prevSelected.includes(pid)
+        ? prevSelected.filter((item) => item !== pid)
+        : [...prevSelected, pid]
+    );
+  };
+
+  const filterProducts = () => {
+    const filteredData = dataProduct.filter(
+      (item) =>
+        (selectedItems.length == 0 || selectedItems.includes(item.pid)) &&
+        item.pricecore >= sliderValue
+    );
+    setFilterProduct(filteredData);
+  };
+
+  useEffect(() => {
+    if (keysearch) {
+    } else {
+      setFilterProduct(dataProduct);
+    }
+  }, [dataProduct, keysearch]);
+
+  const { onFilterChange } = props;
   const applyFilters = () => {
-    console.log(selectedItems, sliderValue);
-    filterProducts(selectedItems, sliderValue);
+    filterProducts();
+    if (onFilterChange) onFilterChange(filterProduct);
   };
 
   const clearFilter = () => {
     setSelectedItems([]);
-    setSliderValue(60000);
-    filterProducts([], 600000);
+    setSliderValue(0);
+    setFilterProduct(dataProduct);
   };
-  console.log("Selected Items:", selectedItems);
-  console.log("Slider Value:", sliderValue);
-
-  function convertMoney(num, separator) {
-    separator = separator === undefined ? "." : separator;
-    num = String(num).replace(/[^0-9]/g, "");
-    if (!isNaN(num)) {
-      var array = num.toString().split("");
-      var index = -3;
-      while (array.length + index > 0) {
-        array.splice(index, 0, separator);
-        index -= 4;
-      }
-      return array.join("");
-    }
-  }
-  function convertNumber(str) {
-    return str.replace(/[^0-9]/g, "");
-  }
   return (
     <>
-      <div className="filter-sub">
+      <div className="filter">
         <div>
           <UncontrolledAccordion stayOpen>
             <AccordionItem>
@@ -69,7 +73,7 @@ export default function FilterSub(props) {
                 <div>
                   <UncontrolledAccordion stayOpen>
                     <AccordionItem>
-                    <AccordionHeader targetId="4">Laptop</AccordionHeader>
+                      <AccordionHeader targetId="4">Laptop</AccordionHeader>
                       <AccordionBody accordionId="4">
                         <div className="shirts">
                           <p
@@ -165,7 +169,7 @@ export default function FilterSub(props) {
                             }
                             onClick={() => handleItemSelection("10")}
                           >
-                            Cáp sạc,Hud,Cáp chuyển đổi
+                            Cáp
                           </p>
                           <p
                             pid="11"
@@ -192,7 +196,7 @@ export default function FilterSub(props) {
                             }
                             onClick={() => handleItemSelection("13")}
                           >
-                            Củ sạc, sạc không dây
+                            Sạc, Sạc không dây
                           </p>
                         </div>
                       </AccordionBody>
@@ -202,71 +206,27 @@ export default function FilterSub(props) {
               </AccordionBody>
             </AccordionItem>
             <AccordionItem>
-              <AccordionHeader targetId="2">Cấu hình</AccordionHeader>
-              <AccordionBody accordionId="2">
-                <div className="product-size">
-                  <p
-                    className={selectedItems.includes("14") ? "active" : ""}
-                    pid="14"
-                    onClick={() => handleItemSelection("14")}
-                  >
-                    8GB
-                  </p>
-                  <p
-                    className={selectedItems.includes("15") ? "active" : ""}
-                    pid="15"
-                    onClick={() => handleItemSelection("15")}
-                  >
-                    12GB
-                  </p>
-                  <p
-                    className={selectedItems.includes("16") ? "active" : ""}
-                    pid="16"
-                    onClick={() => handleItemSelection("16")}
-                  >
-                    16GB
-                  </p>
-                  <p
-                    className={selectedItems.includes("17") ? "active" : ""}
-                    pid="17"
-                    onClick={() => handleItemSelection("17")}
-                  >
-                    128GB
-                  </p>
-                  <p
-                    className={selectedItems.includes("18") ? "active" : ""}
-                    pid="18"
-                    onClick={() => handleItemSelection("18")}
-                  >
-                    256GB
-                  </p>
-                  <p
-                    className={selectedItems.includes("19") ? "active" : ""}
-                    pid="19"
-                    onClick={() => handleItemSelection("19")}
-                  >
-                    512GB
-                  </p>
-                </div>
-              </AccordionBody>
-            </AccordionItem>
-            <AccordionItem>
               <AccordionHeader targetId="3">Giá thành</AccordionHeader>
               <AccordionBody accordionId="3">
                 <div className="product-price">
-                  <div class="slidecontainer">
-                    <input
-                      type="range"
-                      min="50000"
-                      max="60000000"
-                      step="50000"
-                      value={sliderValue}
-                      class="slider"
-                      id="myRange"
-                      onChange={handleSliderChange}
-                    />
-                  </div>
-                  <h6>{convertMoney(sliderValue.toString())}</h6>
+                  <ul>
+                    <li onClick={() => handleFilter()}>Tất cả</li>
+                    <li onClick={() => handleFilter(0, 1000000)}>
+                      From 0 - 1.000.000đ
+                    </li>
+                    <li onClick={() => handleFilter(1000000, 5000000)}>
+                      From 1.000.000 - 5.000.000đ
+                    </li>
+                    <li onClick={() => handleFilter(5000000, 10000000)}>
+                      From 5.000.000 - 10.000.000đ
+                    </li>
+                    <li onClick={() => handleFilter(10000000, 20000000)}>
+                      From 10.000.000 - 20.000.000đ
+                    </li>
+                    <li onClick={() => handleFilter(20000000, 50000000)}>
+                      From 20.000.000 - 50.000.000đ
+                    </li>
+                  </ul>
                 </div>
               </AccordionBody>
             </AccordionItem>

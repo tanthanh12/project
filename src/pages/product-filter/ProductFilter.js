@@ -1,44 +1,30 @@
-import React, { useContext, useEffect } from "react";
-import Filter from "../../components/filter/Filter";
+import React, { useContext, useEffect, useState } from "react";
 import "./ProductFilter.css";
-import axios from "axios";
 import Thumb from "../../components/thumb/Thumb";
 import { Breadcrumb, BreadcrumbItem, Container, Row } from "reactstrap";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import { AppContext } from "../../AppContext";
+import axios from "axios";
 
 export default function ProductFilter() {
-  const { filteredData, setFilteredData, handleFilterChange,setSearchQuery } =
-    useContext(AppContext);
+  const { searchResults } = useContext(AppContext);
+  const [data, setData] = useState([]);
   const getData = () => {
     const url = "https://6518dbbd818c4e98ac5ff3ae.mockapi.io/products";
     axios
       .get(url)
       .then((res) => {
-        setFilteredData(res.data);
+        setData(res.data);
       })
-      .catch((e) => {
-        console.log(e);
+      .catch((error) => {
+        console.log(error);
       });
   };
   useEffect(() => {
     getData();
   }, []);
-  const onFilterChange = (selectedItems, sliderValue) => {
-    console.log("Đã thay đổi lọc dữ liệu: ", selectedItems, sliderValue);
-  };
-  console.log(filteredData);
 
-  const handleSearch = async (searchQuery) => {
-    try {
-      const response = await axios.get(`https://6518dbbd818c4e98ac5ff3ae.mockapi.io/products?q=${searchQuery}`);
-      setFilteredData(response.data);
-      setSearchQuery(searchQuery);
-    } catch (error) {
-      console.error("Lỗi khi tìm kiếm:", error);
-    }
-  };
   return (
     <>
       <Header />
@@ -57,16 +43,21 @@ export default function ProductFilter() {
         </Container>
         <Container>
           <div className="filt-con">
-            <div className="left">
-              <Filter onFilterChange={handleFilterChange} />
-            </div>
-            <div className="right">
-              <Row>
-                {filteredData.map((item, index) => (
-                  <Thumb key={index} product={item} onSearch={handleSearch}/>
-                ))}
-              </Row>
-            </div>
+            <h1>Kết quả tìm kiếm</h1>
+            {searchResults.length > 0 ? (
+              searchResults.map((item) => (
+                <Thumb
+                  id={item.id}
+                  key={item.id}
+                  product={item}
+                  name={item.name}
+                  img={item.avatar}
+                  price={item.pricecore}
+                ></Thumb>
+              ))
+            ) : (
+              <p>Không tìm thấy sản phẩm.</p>
+            )}
           </div>
         </Container>
       </div>

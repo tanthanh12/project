@@ -21,7 +21,6 @@ import Footer from "../../components/footer/Footer";
 import ScrollToTopButton from "../../components/scroll-to-top/ScrollTop";
 
 export default function Cart() {
-  const [data, setData] = useState([]);
   const [products, setProducts] = useState([]);
   const { cart, updateQty } = useContext(AppContext);
 
@@ -89,7 +88,6 @@ export default function Cart() {
                   <Row>
                     <Col md="6" xs="6 " className="name-title">
                       <FormGroup check>
-                        <Input type="checkbox" />
                         <h6 check>Sản phẩm</h6>
                       </FormGroup>
                     </Col>
@@ -102,17 +100,15 @@ export default function Cart() {
                   </Row>
                 </div>
                 <div>
-                  {cart.map((item, index) => (
+                  {cart.map((item) => (
                     <Product_add
-                      key={index}
+                      key={item.id}
                       product={item}
-                      updateQty={updateQty}
                     />
                   ))}
                 </div>
               </div>
             </div>
-
             <div className="right">
               <div className="content-bottom">
                 <div className="temporary">
@@ -120,7 +116,7 @@ export default function Cart() {
                     <tbody>
                       <tr>
                         <th scope="row">Tạm tính</th>
-                        <td>{convertMoney(totalPrice)}</td>
+                        <td>{convertMoney(totalPrice)} đ</td>
                       </tr>
                       <tr>
                         <th scope="row">Khuyến mãi</th>

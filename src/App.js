@@ -24,13 +24,13 @@ function App() {
           <Routes>
             <Route index element={<Home/>}></Route>
             <Route path="/trang-chu/" element={<Home/>}></Route>
-            <Route path="/tim-kiem/" element={<ProductFilter/>}></Route>
             <Route path="/thanh-toan/" element={<Payment />}></Route>
             <Route path="/danh-sach-san-pham" element={<ProductList />}></Route>
             <Route
               path="/chi-tiet-san-pham/:id"
               element={<ProductDetail />}
             ></Route>
+             <Route path="/tim-kiem" element={<ProductFilter />} />
             <Route path="/gio-hang/" element={<Cart />}></Route>
             <Route path="/dia-chi/" element={<Address />}></Route>
             <Route path="/thanh-cong/" element={<Success />}></Route>

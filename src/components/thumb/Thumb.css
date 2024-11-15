@@ -12,7 +12,7 @@
 }
 .each-one .card {
   flex: 1;
-  height: 365px;
+  height: 375px;
   margin: 10px;
   border: none;
   transition: 0.3s;

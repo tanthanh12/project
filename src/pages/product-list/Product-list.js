@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Breadcrumb, BreadcrumbItem, Container, Row } from "reactstrap";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
@@ -7,18 +7,17 @@ import ScrollToTopButton from "../../components/scroll-to-top/ScrollTop";
 import Thumb from "../../components/thumb/Thumb";
 import "./Product-list.css";
 import Filter from "../../components/filter/Filter";
-import { AppContext } from "../../AppContext";
 
 export default function ProductList() {
   const [data, setData] = useState([]);
-  const [showDataList, setShowDataList] = useState(true);
+  const [filterProduct, setFilterProduct] = useState([]); 
   const getData = () => {
     const url = "https://6518dbbd818c4e98ac5ff3ae.mockapi.io/products";
     axios
       .get(url)
       .then((res) => {
         setData(res.data);
-        setFilteredData(res.data);
+        setFilterProduct(res.data); 
       })
       .catch((error) => {
         console.log(error);
@@ -27,15 +26,9 @@ export default function ProductList() {
   useEffect(() => {
     getData();
   }, []);
-  const { filteredData, setFilteredData, handleFilterChange } =
-    useContext(AppContext);
-  const onFilterChange = (selectedItems, sliderValue) => {
-    console.log("Đã thay đổi lọc dữ liệu: ", selectedItems, sliderValue);
+  const handleFilter = (filteredData) => {
+    setFilterProduct(filteredData);
   };
-  const toggleView = () => {
-    setShowDataList((prev) => !prev);
-  };
-  console.log(data);
   return (
     <div>
       <Header />
@@ -55,19 +48,19 @@ export default function ProductList() {
         </div>
         <div className="list">
           <div className="left">
-            <Filter onFilterChange={handleFilterChange} />
+            <Filter onFilterChange = {handleFilter} />
           </div>
           <div className="right">
-            <Row className={showDataList ? "data-list" : "data-list hidden"}>
-              {data.map((item, index) => (
-                <Thumb key={index} product={item} />
-              ))}
-            </Row>
-            <Row
-              className={!showDataList ? "data-filter" : "data-filter hidden"}
-            >
-              {filteredData.map((item, index) => (
-                <Thumb key={index} product={item} />
+            <Row>
+              {filterProduct.map((item) => (
+                <Thumb
+                  id={item.id}
+                  key={item.id}
+                  product={item}
+                  name={item.name}
+                  img={item.avatar}
+                  price={item.pricecore}
+                ></Thumb>
               ))}
             </Row>
           </div>

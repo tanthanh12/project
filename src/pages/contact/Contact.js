@@ -8,13 +8,13 @@ import {
   Container,
   Button,
 } from "reactstrap";
-import emailjs from 'emailjs-com';
+import emailjs from "emailjs-com";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import "./Contact.css";
 
 export default function Contact() {
-  const form = useRef();
+  const form = useRef(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -28,8 +28,11 @@ export default function Contact() {
     phoneNumber: true,
     email: true,
     message: true,
-    general: true, 
+    general: true,
   });
+
+  const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -48,31 +51,41 @@ export default function Contact() {
 
     setValidation(newValidation);
     if (Object.values(newValidation).every((isValid) => isValid)) {
-      emailjs
-        .sendForm("service_gq38fcs", "template_x2wva6w", form.current, {
-          publicKey: "wS7DA3qJahEh8SkK_",
-        })
-        .then(
-          () => {
-            console.log("Email gửi thành công");
-            setFormData({
-              name: "",
-              phoneNumber: "",
-              email: "",
-              message: "",
-            });
-            setValidation({
-              name: true,
-              phoneNumber: true,
-              email: true,
-              message: true,
-              general: true,
-            });
-          },
-          (error) => {
-            console.error("Không thể gửi email:", error);
-          }
-        );
+      setLoading(true); 
+      if (form.current) {
+        emailjs
+          .sendForm("service_gq38fcs", "template_xdi9c47", form.current, {
+            publicKey: "vaeYWFragdA48f87E",
+          })
+          .then(
+            () => {
+              setFormData({
+                name: "",
+                phoneNumber: "",
+                email: "",
+                message: "",
+              });
+              setValidation({
+                name: true,
+                phoneNumber: true,
+                email: true,
+                message: true,
+                general: true,
+              });
+              setSuccessMessage("Cảm ơn bạn! Email của bạn đã được gửi thành công.");
+            },
+            (error) => {
+              console.error("Không thể gửi email:", error);
+              setSuccessMessage("Đã có lỗi xảy ra. Vui lòng thử lại.");
+            }
+          )
+          .finally(() => {
+            setLoading(false); 
+          });
+      } else {
+        console.error("Không tìm thấy form");
+        setLoading(false);
+      }
     } else {
       setValidation({ ...newValidation, general: false });
     }
@@ -132,9 +145,16 @@ export default function Contact() {
               />
               <FormFeedback invalid>Vui lòng nhập lời nhắn của bạn</FormFeedback>
             </FormGroup>
-            <Button type="submit">Gửi</Button>
+            <Button type="submit" disabled={loading}>
+              {loading ? "Đang gửi..." : "Gửi"}
+            </Button>
             {!validation.general && (
               <div className="error-message">Vui lòng điền đầy đủ thông tin và kiểm tra lại.</div>
+            )}
+            {successMessage && (
+              <div className={`success-message ${successMessage.includes("thành công") ? "success" : "error"}`}>
+                {successMessage}
+              </div>
             )}
           </Form>
         </Container>

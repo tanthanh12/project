@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.left-check {
+  float: left;
+  width: 20%;
+  background-color: #e9e9e9;
+}
+.left-check .user-check{
+    padding: 10px; 
+}
+.left-check .user-check p.uid{
+  position: relative;
+}
+.left-check .user-check p.uid::after{
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+  height: 1px;
+  width: 100%;
+  background-color: black;
+}
+.avatar-check{
+    text-align: center;
+}
+.avatar-check img{
+    width: 70%;
+    border:1px solid black;
+    margin: 10px auto;
+    background-color: white;
+}
+.user-check .user-info p{
+    text-align: center;
+    font-weight: 500;
+    align-items: center;
+}
+.user-check .user-info p:last-child{
+    margin-top: -15px;
+}
+.right-check {
+  width: 60%;
+  float: left;
+  margin-left: 20px;
+}

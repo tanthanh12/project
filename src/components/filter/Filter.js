@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect, useState } from "react";
 import {
   AccordionItem,
   AccordionHeader,
@@ -6,33 +6,62 @@ import {
   UncontrolledAccordion,
   Button,
 } from "reactstrap";
-import { AppContext } from "../../AppContext";
+import { useParams } from "react-router-dom";
+import useFetch from "../../features/useFetch";
 import "./Filter.css";
 
 export default function Filter(props) {
-  const {
-    selectedItems,
-    sliderValue,
-    filterProducts,
-    handleItemSelection,
-    handleSliderChange,
-    convertMoney,
-    handleChange,
-  } = useContext(AppContext);
-  const { onFilterChange } = props;
+  const { slug: keysearch } = useParams();
 
+  const dataProduct = useFetch(
+    "https://6518dbbd818c4e98ac5ff3ae.mockapi.io/products"
+  );
+  const [filterProduct, setFilterProduct] = useState([]);
+  const [selectedItems, setSelectedItems] = useState([]);
+  const [sliderValue, setSliderValue] = useState(0);
+
+  const handleFilter = (min, max) => {
+    const filterData = dataProduct.filter((item) =>
+      min && max ? item.pricecore >= min && item.pricecore <= max : true
+    );
+    setFilterProduct(filterData);
+  };
+
+  const handleItemSelection = (pid) => {
+    setSelectedItems((prevSelected) =>
+      prevSelected.includes(pid)
+        ? prevSelected.filter((item) => item !== pid)
+        : [...prevSelected, pid]
+    );
+  };
+
+  const filterProducts = () => {
+    const filteredData = dataProduct.filter(
+      (item) =>
+        (selectedItems.length == 0 || selectedItems.includes(item.pid)) &&
+        item.pricecore >= sliderValue
+    );
+    setFilterProduct(filteredData);
+  };
+
+  useEffect(() => {
+    if (keysearch) {
+    } else {
+      setFilterProduct(dataProduct);
+    }
+  }, [dataProduct, keysearch]);
+
+  const { onFilterChange } = props;
   const applyFilters = () => {
-    filterProducts(selectedItems, sliderValue);
+    filterProducts();
+    if (onFilterChange) onFilterChange(filterProduct);
   };
 
   const clearFilter = () => {
-    handleItemSelection([]);
-    handleSliderChange(60000);
-    filterProducts([], 60000);
+    setSelectedItems([]);
+    setSliderValue(0);
+    setFilterProduct(dataProduct);
   };
-  console.log("Selected Items:", selectedItems);
-  console.log("Slider Value:", sliderValue);
-
   return (
     <>
       <div className="filter">
@@ -46,8 +75,9 @@ export default function Filter(props) {
                     <AccordionItem>
                       <AccordionHeader targetId="4">Laptop</AccordionHeader>
                       <AccordionBody accordionId="4">
-                        <div className="shirts">
-                          <p
+                        <div className="lap">
+                          <ul>
+                          <li
                             pid="1"
                             className={
                               selectedItems.includes("1") ? "active" : ""
@@ -55,8 +85,8 @@ export default function Filter(props) {
                             onClick={() => handleItemSelection("1")}
                           >
                             Dell
-                          </p>
-                          <p
+                          </li>
+                          <li
                             pid="2"
                             className={
                               selectedItems.includes("2") ? "active" : ""
@@ -64,8 +94,8 @@ export default function Filter(props) {
                             onClick={() => handleItemSelection("2")}
                           >
                             Asus
-                          </p>
-                          <p
+                          </li>
+                          <li
                             pid="3"
                             className={
                               selectedItems.includes("3") ? "active" : ""
@@ -73,15 +103,17 @@ export default function Filter(props) {
                             onClick={() => handleItemSelection("3")}
                           >
                             MSI
-                          </p>
+                          </li>
+                          </ul>
                         </div>
                       </AccordionBody>
                     </AccordionItem>
                     <AccordionItem>
                       <AccordionHeader targetId="5">Điện thoại</AccordionHeader>
                       <AccordionBody accordionId="5">
-                        <div className="pants">
-                          <p
+                        <div className="phones">
+                          <ul>
+                          <li
                             pid="5"
                             className={
                               selectedItems.includes("5") ? "active" : ""
@@ -89,8 +121,8 @@ export default function Filter(props) {
                             onClick={() => handleItemSelection("5")}
                           >
                             Samsung
-                          </p>
-                          <p
+                          </li>
+                          <li
                             pid="6"
                             className={
                               selectedItems.includes("6") ? "active" : ""
@@ -98,8 +130,8 @@ export default function Filter(props) {
                             onClick={() => handleItemSelection("6")}
                           >
                             iPhone
-                          </p>
-                          <p
+                          </li>
+                          <li
                             pid="7"
                             className={
                               selectedItems.includes("7") ? "active" : ""
@@ -107,8 +139,8 @@ export default function Filter(props) {
                             onClick={() => handleItemSelection("7")}
                           >
                             OPPO
-                          </p>
-                          <p
+                          </li>
+                          <li
                             pid="8"
                             className={
                               selectedItems.includes("8") ? "active" : ""
@@ -116,7 +148,7 @@ export default function Filter(props) {
                             onClick={() => handleItemSelection("8")}
                           >
                             Nokia
-                          </p>
+                          </li></ul>
                         </div>
                       </AccordionBody>
                     </AccordionItem>
@@ -124,51 +156,53 @@ export default function Filter(props) {
                       <AccordionHeader targetId="6">Phụ kiện</AccordionHeader>
                       <AccordionBody accordionId="6">
                         <div className="accessories">
-                          <p
-                            pid="9"
-                            className={
-                              selectedItems.includes("9") ? "active" : ""
-                            }
-                            onClick={() => handleItemSelection("9")}
-                          >
-                            Sạc dự phòng
-                          </p>
-                          <p
-                            pid="10"
-                            className={
-                              selectedItems.includes("10") ? "active" : ""
-                            }
-                            onClick={() => handleItemSelection("10")}
-                          >
-                            Cáp sạc,Hud,Cáp chuyển đổi
-                          </p>
-                          <p
-                            pid="11"
-                            className={
-                              selectedItems.includes("11") ? "active" : ""
-                            }
-                            onClick={() => handleItemSelection("11")}
-                          >
-                            Tai nghe
-                          </p>
-                          <p
-                            pid="12"
-                            className={
-                              selectedItems.includes("12") ? "active" : ""
-                            }
-                            onClick={() => handleItemSelection("12")}
-                          >
-                            Loa
-                          </p>
-                          <p
-                            pid="13"
-                            className={
-                              selectedItems.includes("13") ? "active" : ""
-                            }
-                            onClick={() => handleItemSelection("13")}
-                          >
-                            Củ sạc, sạc không dây
-                          </p>
+                          <ul>
+                            <li
+                              pid="9"
+                              className={
+                                selectedItems.includes("9") ? "active" : ""
+                              }
+                              onClick={() => handleItemSelection("9")}
+                            >
+                              Sạc dự phòng
+                            </li>
+                            <li
+                              pid="10"
+                              className={
+                                selectedItems.includes("10") ? "active" : ""
+                              }
+                              onClick={() => handleItemSelection("10")}
+                            >
+                              Cáp
+                            </li>
+                            <li
+                              pid="11"
+                              className={
+                                selectedItems.includes("11") ? "active" : ""
+                              }
+                              onClick={() => handleItemSelection("11")}
+                            >
+                              Tai nghe
+                            </li>
+                            <li
+                              pid="12"
+                              className={
+                                selectedItems.includes("12") ? "active" : ""
+                              }
+                              onClick={() => handleItemSelection("12")}
+                            >
+                              Loa
+                            </li>
+                            <li
+                              pid="13"
+                              className={
+                                selectedItems.includes("13") ? "active" : ""
+                              }
+                              onClick={() => handleItemSelection("13")}
+                            >
+                              Sạc, Sạc không dây
+                            </li>
+                          </ul>
                         </div>
                       </AccordionBody>
                     </AccordionItem>
@@ -177,71 +211,61 @@ export default function Filter(props) {
               </AccordionBody>
             </AccordionItem>
             <AccordionItem>
-              <AccordionHeader targetId="2">Cấu hình</AccordionHeader>
-              <AccordionBody accordionId="2">
-                <div className="product-size">
-                  <p
-                    className={selectedItems.includes("14") ? "active" : ""}
-                    pid="14"
-                    onClick={() => handleItemSelection("14")}
-                  >
-                    8GB
-                  </p>
-                  <p
-                    className={selectedItems.includes("15") ? "active" : ""}
-                    pid="15"
-                    onClick={() => handleItemSelection("15")}
-                  >
-                    12GB
-                  </p>
-                  <p
-                    className={selectedItems.includes("16") ? "active" : ""}
-                    pid="16"
-                    onClick={() => handleItemSelection("16")}
-                  >
-                    16GB
-                  </p>
-                  <p
-                    className={selectedItems.includes("17") ? "active" : ""}
-                    pid="17"
-                    onClick={() => handleItemSelection("17")}
-                  >
-                    128GB
-                  </p>
-                  <p
-                    className={selectedItems.includes("18") ? "active" : ""}
-                    pid="18"
-                    onClick={() => handleItemSelection("18")}
-                  >
-                    256GB
-                  </p>
-                  <p
-                    className={selectedItems.includes("19") ? "active" : ""}
-                    pid="19"
-                    onClick={() => handleItemSelection("19")}
-                  >
-                    512GB
-                  </p>
-                </div>
-              </AccordionBody>
-            </AccordionItem>
-            <AccordionItem>
               <AccordionHeader targetId="3">Giá thành</AccordionHeader>
               <AccordionBody accordionId="3">
                 <div className="product-price">
-                  <div class="slidecontainer">
-                    <input
-                      type="range"
-                      min="50000"
-                      max="60000000"
-                      step="50000"
-                      value={sliderValue}
-                      className="slider"
-                      id="myRange"
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <h6>{convertMoney(sliderValue)}</h6>
+                  <ul>
+                    <li
+                      pid="14"
+                      className={selectedItems.includes("14") ? "active" : ""}
+                      onClick={() => {
+                        handleItemSelection("14");
+                        handleFilter(0, 1000000);
+                      }}
+                    >
+                     Từ 0 - 1.000.000đ
+                    </li>
+                    <li
+                      pid="15"
+                      className={selectedItems.includes("15") ? "active" : ""}
+                      onClick={() => {
+                        handleItemSelection("15");
+                        handleFilter(1000000, 5000000);
+                      }}
+                    >
+                      Từ 1.000.000 - 5.000.000đ
+                    </li>
+                    <li
+                      pid="11"
+                      className={selectedItems.includes("16") ? "active" : ""}
+                      onClick={() => {
+                        handleItemSelection("16");
+                        handleFilter(5000000, 10000000);
+                      }}
+                    >
+                     Từ 5.000.000 - 10.000.000đ
+                    </li>
+                    <li
+                      pid="17"
+                      className={selectedItems.includes("17") ? "active" : ""}
+                      onClick={() => {
+                        handleItemSelection("17");
+                        handleFilter(10000000, 20000000);
+                      }}
+                    >
+                     Từ 10.000.000 - 20.000.000đ
+                    </li>
+                    <li
+                      pid="13"
+                      className={selectedItems.includes("18") ? "active" : ""}
+                      onClick={() => {
+                        handleItemSelection("18");
+                        handleFilter(20000000, 50000000);
+                      }}
+                    >
+                      Từ 20.000.000 - 50.000.000đ
+                    </li>
+                  </ul>
                 </div>
               </AccordionBody>
             </AccordionItem>

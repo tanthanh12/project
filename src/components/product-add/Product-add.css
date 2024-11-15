@@ -19,12 +19,12 @@ body {
 }
 .detail .product-info img {
   width: 65px;
-  margin: 20px 10px;
-  padding: 5px;
-  border-radius: 5px;
+  margin: 15px 7px;
+  background-color: white;
+  padding: 3px;
 }
 .detail .product-info input {
-  margin-top: 55px;
+  margin-top: 40px;
 }
 .detail .count span.qty {
   padding: 10px;
@@ -43,6 +43,12 @@ body {
   background-color: white;
   color: red;
 }
+.detail .review h6{
+  font-size: 14px;
+}
+.detail .review p{
+  font-size: 12px;
+}
 .detail .review > p:last-child {
   margin-top: -10px;
 }
@@ -57,6 +63,7 @@ body {
   border-bottom-right-radius: 0;
   
 }
+ 
 @media screen and (max-width: 540px) {
   .detail .product-info .text-center .col .form-check {
     width: 80px;
