@@ -8,13 +8,13 @@ import {
   Container,
   Button,
 } from "reactstrap";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import "./Contact.css";
 
 export default function Contact() {
-  const form = useRef(null);
+  const form = useRef();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -28,7 +28,6 @@ export default function Contact() {
     phoneNumber: true,
     email: true,
     message: true,
-    general: true,
   });
 
   const [loading, setLoading] = useState(false);
@@ -42,6 +41,7 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Kiểm tra dữ liệu hợp lệ
     const newValidation = {
       name: formData.name.trim() !== "",
       phoneNumber: /^\d{10}$/.test(formData.phoneNumber),
@@ -50,44 +50,44 @@ export default function Contact() {
     };
 
     setValidation(newValidation);
+
     if (Object.values(newValidation).every((isValid) => isValid)) {
-      setLoading(true); 
-      if (form.current) {
-        emailjs
-          .sendForm("service_gq38fcs", "template_xdi9c47", form.current, {
-            publicKey: "vaeYWFragdA48f87E",
-          })
-          .then(
-            () => {
-              setFormData({
-                name: "",
-                phoneNumber: "",
-                email: "",
-                message: "",
-              });
-              setValidation({
-                name: true,
-                phoneNumber: true,
-                email: true,
-                message: true,
-                general: true,
-              });
-              setSuccessMessage("Cảm ơn bạn! Email của bạn đã được gửi thành công.");
-            },
-            (error) => {
-              console.error("Không thể gửi email:", error);
-              setSuccessMessage("Đã có lỗi xảy ra. Vui lòng thử lại.");
-            }
-          )
-          .finally(() => {
-            setLoading(false); 
-          });
-      } else {
-        console.error("Không tìm thấy form");
-        setLoading(false);
-      }
-    } else {
-      setValidation({ ...newValidation, general: false });
+      setLoading(true); // Đang gửi email
+
+      // Gửi email bằng EmailJS
+      emailjs
+        .sendForm(
+          'service_gq38fcs', 
+          'template_xdi9c47', 
+          form.current, 
+          'vaeYWFragdA48f87E' // public key của bạn
+        )
+        .then(
+          () => {
+            // Reset form sau khi gửi thành công
+            setFormData({
+              name: "",
+              phoneNumber: "",
+              email: "",
+              message: "",
+            });
+            setValidation({
+              name: true,
+              phoneNumber: true,
+              email: true,
+              message: true,
+            });
+            setSuccessMessage("Cảm ơn bạn! Email của bạn đã được gửi thành công.");
+            setTimeout(() => setSuccessMessage(""), 5000); // Ẩn thông báo sau 5 giây
+          },
+          (error) => {
+            console.error("Lỗi khi gửi email:", error); // Log lỗi đầy đủ
+            setSuccessMessage(`Gửi email thất bại: ${error.message || 'Không có thông tin lỗi cụ thể.'}`);
+          }
+        )
+        .finally(() => {
+          setLoading(false); // Tắt trạng thái loading
+        });
     }
   };
 
@@ -148,9 +148,6 @@ export default function Contact() {
             <Button type="submit" disabled={loading}>
               {loading ? "Đang gửi..." : "Gửi"}
             </Button>
-            {!validation.general && (
-              <div className="error-message">Vui lòng điền đầy đủ thông tin và kiểm tra lại.</div>
-            )}
             {successMessage && (
               <div className={`success-message ${successMessage.includes("thành công") ? "success" : "error"}`}>
                 {successMessage}

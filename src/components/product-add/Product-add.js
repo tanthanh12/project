@@ -6,7 +6,7 @@ import { AppContext } from "../../AppContext";
 export default function Product_add(props) {
   const { removeItem, updateQty, cart } = useContext(AppContext);
   const { product } = props;
-  const [qty, setQty] = useState(1);
+  const [qty, setQty] = useState(product.qty||1);
 
   const increment = () => {
     const newQty = qty + 1;

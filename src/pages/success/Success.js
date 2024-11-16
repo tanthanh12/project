@@ -34,7 +34,7 @@ export default function Success() {
     <>
     <Header/>
       <Container>
-        <div>
+        <div className="success">
           <Breadcrumb className="crumb">
             <BreadcrumbItem>
               <a href="/trang-chu">

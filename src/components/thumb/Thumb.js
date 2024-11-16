@@ -16,7 +16,7 @@ export default function Thumb(props) {
     if (text.length <= maxLength) {
       return text;
     }
-    let lastSpaceIndex = text.lastIndexOf(' ', maxLength);
+    let lastSpaceIndex = text.lastIndexOf(" ", maxLength);
     let shortenedText = text.substring(0, lastSpaceIndex);
     return shortenedText;
   }
@@ -33,22 +33,28 @@ export default function Thumb(props) {
       return array.join("");
     }
   }
-  function convertNumber(str) {
-    return str.replace(/[^0-9]/g, "");
-  }
 
   return (
     <Col lg={3} md={4} sm={6} xs={6}>
-      <div className="each-one">
-        <Link to={`/chi-tiet-san-pham/${product.id}`}>
-          <Card>
-            <CardImg src={product.avatar} top width="100%" />
-            <CardBody>
-              <CardTitle tag="p"> {product ?  cutShortWithoutCuttingWords(product.name, 30) : " "}</CardTitle>
-              <CardText tag="h6">{convertMoney(product.pricecore)}đ </CardText>
-            </CardBody>
-          </Card>
-        </Link>
+      <div className="card-container">
+        <div className="each-one">
+          <Link to={`/chi-tiet-san-pham/${product.id}`}>
+            <Card>
+              <CardImg src={product.avatar} top width="100%" />
+              <CardBody>
+                <CardTitle tag="p">
+                  {" "}
+                  {product
+                    ? cutShortWithoutCuttingWords(product.name, 30)
+                    : " "}
+                </CardTitle>
+                <CardText tag="h6">
+                  {convertMoney(product.pricecore)}đ{" "}
+                </CardText>
+              </CardBody>
+            </Card>
+          </Link>
+        </div>
       </div>
     </Col>
   );

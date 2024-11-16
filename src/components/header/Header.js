@@ -134,7 +134,7 @@ export default function Header() {
                   <NavLink href="/danh-sach-san-pham">Sản phẩm</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/">Tin tức</NavLink>
+                  <NavLink href="/tin-tuc">Tin tức</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink href="/lien-he">Liên hệ</NavLink>
