@@ -157,12 +157,12 @@ export default function Product_detail_top() {
                   onClick={() =>
                     addCart(
                       data.id,
-                      data.color,
+                      data.color[activeColor],
                       data.name,
                       data.price,
                       data.avatar,
                       data.pricecore,
-                      data.configuration
+                      data.configuration[activeConfiguration]
                     )
                   }
                 >
@@ -173,12 +173,12 @@ export default function Product_detail_top() {
                   onClick={() =>
                     addCart(
                       data.id,
-                      data.color,
+                      data.color[activeColor],
                       data.name,
                       data.price,
                       data.avatar,
                       data.pricecore,
-                      data.configuration
+                      data.configuration[activeConfiguration]
                     )
                   }
                 >
