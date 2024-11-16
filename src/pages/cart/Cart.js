@@ -104,6 +104,7 @@ export default function Cart() {
                     <Product_add
                       key={item.id}
                       product={item}
+                      updateQty={updateQty}
                     />
                   ))}
                 </div>
@@ -140,7 +141,7 @@ export default function Cart() {
                       </tr>
                       <tr>
                         <th scope="row">Điểm tích lũy</th>
-                        <td>{Math.round(totalPrice / 10000)} điểm</td>
+                        <td>{Math.round(totalPrice / 100000)} điểm</td>
                       </tr>
                     </tbody>
                   </Table>

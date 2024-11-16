@@ -27,7 +27,7 @@ import { LuFilter } from "react-icons/lu";
 import FilterSub from "../filter-sub/Filter-sub";
 
 export default function Header() {
-  const { cart,setSearchResults } = useContext(AppContext);
+  const { cart, setSearchResults } = useContext(AppContext);
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const [isOpen1, setIsOpen1] = useState(false);
@@ -91,7 +91,20 @@ export default function Header() {
                 <a href="#" className="closebtn" onClick={closeNav}>
                   x
                 </a>
-                <form onSubmit={handleSearch}>
+                <InputGroup onSubmit={handleSearch}>
+                  <Input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Bạn cần tìm gì"
+                  />
+                  <div class="input-group-append">
+                    <Button type="submit" href="/tim-kiem">
+                      <HiMagnifyingGlass />
+                    </Button>
+                  </div>
+                </InputGroup>
+                {/* <form onSubmit={handleSearch}>
                   <input
                     type="text"
                     value={searchQuery}
@@ -101,7 +114,7 @@ export default function Header() {
                   <Button type="submit">
                     <HiMagnifyingGlass />
                   </Button>
-                </form>
+                </form> */}
               </div>
               <Button className="openbtn" onClick={openNav}>
                 <HiMagnifyingGlass />
@@ -148,8 +161,13 @@ export default function Header() {
                       <a href="#" className="closebtn" onClick={closeNav}>
                         x
                       </a>
-                      <InputGroup>
-                        <Input placeholder="Bạn cần tìm gì" />
+                      <InputGroup onSubmit={handleSearch}>
+                        <Input
+                          type="text"
+                          value={searchQuery}
+                          onChange={(e) => setSearchQuery(e.target.value)}
+                          placeholder="Bạn cần tìm gì"
+                        />
                         <div class="input-group-append">
                           <Button type="button" href="/tim-kiem">
                             <HiMagnifyingGlass />

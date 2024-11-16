@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./ProductFilter.css";
 import Thumb from "../../components/thumb/Thumb";
-import { Breadcrumb, BreadcrumbItem, Container, Row } from "reactstrap";
+import { Breadcrumb, BreadcrumbItem, Container} from "reactstrap";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import { AppContext } from "../../AppContext";
@@ -43,7 +43,7 @@ export default function ProductFilter() {
         </Container>
         <Container>
           <div className="filt-con">
-            <h1>Kết quả tìm kiếm</h1>
+            <h3>Kết quả tìm kiếm</h3>
             {searchResults.length > 0 ? (
               searchResults.map((item) => (
                 <Thumb

@@ -96,7 +96,7 @@ body {
   .detail .col-2:nth-child(3) button {
     width: 20px;
     height: 30px;
-    margin-left: -23px;
+    margin-left: -25px;
     padding-bottom: 20px;
   }
   .detail .count span.qty {
@@ -104,9 +104,9 @@ body {
     padding: 3px;
     margin-top: 5px;
   }
-  .detail .count span.plus,
-  .detail .count span.minus {
-    margin-top: -15px;
+  .detail .count >span.plus,
+  .detail .count >span.minus {
+    margin-bottom: 10px;
   }
   .detail .col-1:last-child .delete {
     text-align: start;

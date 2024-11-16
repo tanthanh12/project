@@ -21,7 +21,8 @@
   margin-bottom: 15px;
 }
 .list .each-one .card{
-    height: 320px;
+    margin: 5px 0;
+    height: 250px;
 }
 .list{
   display: flex;
@@ -30,7 +31,7 @@
   width: 25%;
 }
 .list .right{
-  width: 75%;
+  width: 74%;
 }
 @media screen and (max-width:768px) {
   .list .row .col-12.col-sm-6.col-md-4.col-lg-3{
@@ -40,6 +41,6 @@
     display: block;
   }
   .list .each-one .card{
-    height: 270px;
+    height: 5vh;
   }
 }
